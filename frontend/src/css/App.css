@@ -1,0 +1,10 @@
+.myDiv {
+  border: 100px outset red;
+  background-color: lightblue;
+  text-align: center;
+}
+.myDiv2 {
+  border: 50px outset whitesmoke;
+  background-color: lightblue;
+  text-align: center;
+}
