@@ -1,0 +1,30 @@
+.C{
+    width: 100px;
+    margin-top: 10%;
+}
+.Register{
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../../img3.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.registerButton{
+    
+
+  border: none;
+  color: white;
+  margin-top: 2%;
+
+  text-align: center;
+justify-content: space-evenly;
+ 
+
+}
+.AlreadyRegistered{
+    margin-right: 6%;
+      margin-top: 1%;
+    color:black
+}

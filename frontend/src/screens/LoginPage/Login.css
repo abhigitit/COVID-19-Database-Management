@@ -1,0 +1,42 @@
+.form-group{
+    display: table;
+   width: 100%;
+   
+  
+}
+.f{
+   margin-left: 10%;
+   margin-right: 20%;
+     margin-top: 10%;
+   margin-bottom: 20%;
+}
+
+.buttonContainer {
+  margin-top: 50px;
+ 
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Login{
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../../img4.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.form-control{
+    width: 5px; 
+    height: 40px;
+    
+}
+.C{
+    width: 300px;
+}
+
+.forgot-password{
+    margin-left: 43%;
+    color:cornflowerblue
+    
+}

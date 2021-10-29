@@ -1,0 +1,16 @@
+.buttonContainer {
+  margin-top: 50px;
+ 
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.D{
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  /* background-image: url("../../img3.jpg"); */
+  background-position: center;
+  background-size: cover;
+}
