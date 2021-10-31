@@ -33,7 +33,7 @@ let data = ({
     Password: this.state.Password
 })
 
-    axios.post("http://localhost:3000/hello",data).then(response => {
+    axios.post("http://localhost:3000/register",data).then(response => {
         alert("response:"+response);
     })
     .catch(err=>{
