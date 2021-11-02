@@ -1,0 +1,7 @@
+.Stats{
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}

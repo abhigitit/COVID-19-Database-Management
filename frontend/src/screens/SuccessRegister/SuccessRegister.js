@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
-import MainScreen from '../../Components/MainScreen'
+
 import './SuccessRegister.css'
 
 export default class SuccessRegister extends Component {

@@ -1,11 +1,12 @@
 import React from 'react'
-import MainScreen from '../../Components/MainScreen'
+import './Stats.css'
 
 
 const Stats = () => {
     return (
-        <MainScreen title ="Here are the vaccination stats of Santa Clara County..">Stats</MainScreen>
-       
+        <div className="Stats">
+        <h1>Here are the vaccination stats of Santa Clara County</h1>
+       </div>
     )
 }
 
