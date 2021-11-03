@@ -7,6 +7,7 @@ const LandingPage = () => {
         <div className="main">
             <Container>
                 <Row>
+                    <div className="auth-inner">
                     <div className="intro-text">
                         <h1 className='title'>Welcome to Project-V</h1>
                         <p className='subtitle'> Dont have an account? Click on register </p>
@@ -19,6 +20,7 @@ const LandingPage = () => {
                         < a href ="/register">
                             <Button size='lg' className='landingButton' > Register </Button>
                         </a>
+                    </div>
                     </div>
                     </Row>
             </Container>
