@@ -3,11 +3,13 @@ const router = express.Router();
 const pool = require("../pool.js");
 const bcrypt = require("bcrypt");
 
-router.post("/", async (req, res) => {
-  const passwordHash = await bcrypt.hashSync(req.body.Password, 10);
+router.post("/",  (req, res) => {
+  const myPlaintextPassword = req.body.Password;
+  const hash = bcrypt.hashSync(myPlaintextPassword, 5);
+  
   pool.query(
     "INSERT INTO person (p_firstname,p_lastname,p_id,password) VALUES (?,?,?,?)",
-    [req.body.FirstName, req.body.LastName, req.body.Email, passwordHash],
+    [req.body.FirstName, req.body.LastName, req.body.Email, hash],
     (err, result) => {
       if (err) {
         console.log(err);
