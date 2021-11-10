@@ -15,7 +15,7 @@ router.post("/",  (req, res) => {
         console.log(err);
       } else {
         console.log("Registered succesfully" + JSON.stringify(result));
-        res.send({ message: "Reagistered Successsully" });
+        res.status(200).send({ message: "Reagistered Successsully" });
       }
     }
   );

@@ -1,10 +1,8 @@
 import { Container, form, Button } from "react-bootstrap";
 import "./Register.css";
-
 import React, { Component } from "react";
-
 import axios from "axios";
-import { Link } from "react-router-dom";
+var responseStatus;
 
 export default class Register extends Component {
   constructor() {
@@ -30,13 +28,15 @@ export default class Register extends Component {
     };
 
     axios
-      .post("http://localhost:3000/register", data)
+      .post("http://localhost:5000/register", data)
       .then((response) => {
-        alert("response:" + response);
+        responseStatus =  response.status;
       })
       .catch((err) => {
         console.log("err" + err);
-      });
+      });      
+      this.props.history.push('/success');
+      
   };
 
   render() {
@@ -46,7 +46,6 @@ export default class Register extends Component {
           <div>
             <form onSubmit={this.onSubmit}>
               <h3>Register</h3>
-
               <div className="form-group">
                 <label>First name</label>
                 <input
@@ -94,7 +93,7 @@ export default class Register extends Component {
                 />
               </div>
               <div className="registerButton">
-                <Button type="submit" onClick={() => History.push("/success")}>
+              <Button type="submit">
                   Register
                 </Button>
                 <div>

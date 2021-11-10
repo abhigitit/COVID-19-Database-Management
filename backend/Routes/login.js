@@ -14,8 +14,11 @@ router.post("/", (req, res) => {
     bcrypt.compare(enteredPassword, hashedPassword, function(err, isMatch) {
       if (err ||!isMatch) {
         res.status(401).send('authentication failed');
+        console.log('login failed');
+
       } 
       else {
+        console.log('login succeed');
         res.status(200).send('Login Successful');
       }
     })}
