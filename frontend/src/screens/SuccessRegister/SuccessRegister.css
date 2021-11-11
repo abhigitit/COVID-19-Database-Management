@@ -1,6 +1,5 @@
-.buttonContainer {
+.D.buttonContainer {
   margin-top: 50px;
- 
   display: flex;
   justify-content: space-evenly;
 }
@@ -10,7 +9,15 @@
   min-height: 93vh;
   display: flex;
   align-items: center;
-  /* background-image: url("../../img3.jpg"); */
   background-position: center;
   background-size: cover;
+}
+
+@media only screen and (min-width: 1200px) {
+  
+  .title {
+    padding: 0 100px;
+    color: black;
+    font-size: 50px;
+  }
 }

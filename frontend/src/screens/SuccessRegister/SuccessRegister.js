@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap';
+import { Container,Row , Button} from 'react-bootstrap'
 
 import './SuccessRegister.css'
 
 export default class SuccessRegister extends Component {
     render() {
         return (          
-            <div className="D">            
-                   <div className = "buttonContainer">                
+            <div className="main">
+            <Container>
+                <Row>
+                    <div className="auth-inner">
+                    <div className="intro-text">
+                        <h1 className='title'>Succesfully Registered</h1>
+                    </div>
+                    <div className = "buttonContainer">
                         < a href ="/login">
                             <Button size='lg' className='landingButton' variant='outline-primary' > Login </Button>
                         </a>
-                       </div>
                     </div>
+                    </div>
+                    </Row>
+            </Container>
             
+        </div>
         );
     }
 }

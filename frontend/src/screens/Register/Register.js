@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import axios from "axios";
 var responseStatus;
 
+
 export default class Register extends Component {
   constructor() {
     super();
@@ -81,6 +82,71 @@ export default class Register extends Component {
                   value={this.state.fields["Email"]}
                 />
               </div>
+
+              <div className="form-group">
+                <label>Date of Birth</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  placeholder="Enter DOB"
+                  name="DOB"
+                  onChange={this.onChange}
+                  value={this.state.fields["DOB"]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Address</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Address"
+                  name="address"
+                  onChange={this.onChange}
+                  value={this.state.fields["address"]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Phone Number</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Home Phone"
+                  name="homephone"
+                  onChange={this.onChange}
+                  value={this.state.fields["homephone"]}
+                />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Mobile"
+                  name="mobile"
+                  onChange={this.onChange}
+                  value={this.state.fields["mobile"]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Emergency Contact</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Name"
+                  name="name"
+                  onChange={this.onChange}
+                  value={this.state.fields["name"]}
+                />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Phone"
+                  name="phone"
+                  onChange={this.onChange}
+                  value={this.state.fields["phone"]}
+                />
+              </div>
+
               <div className="form-group">
                 <label>Password</label>
                 <input

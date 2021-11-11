@@ -8,6 +8,7 @@ import Stats from "./screens/StatsPage/Stats";
 import Login from "./screens/LoginPage/Login";
 import Register from "./screens/Register/Register";
 import SuccessRegister from "./screens/SuccessRegister/SuccessRegister";
+import SlotBooking from "./screens/SlotBooking/SlotBooking";
 
 
 
@@ -20,6 +21,7 @@ const App = () => (
        <Route path ='/login' component ={Login} />
        <Route path ='/register' component ={Register} />
        <Route path ='/success' component ={SuccessRegister} />
+       <Route path ='/slotBooking' component ={SlotBooking} />
       </main>
 
       <Footer/>
