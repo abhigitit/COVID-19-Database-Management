@@ -1,16 +1,16 @@
-import { Container, form, Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import "./Register.css";
 import React, { Component } from "react";
-import axios from "axios";
-var responseStatus;
-
+import Axios from "axios";
+import { Redirect } from "react-router";
 
 export default class Register extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       fields: {},
       errors: {},
+      message: "",
     };
   }
 
@@ -20,7 +20,8 @@ export default class Register extends Component {
       [e.target.name]: e.target.value,
     });
   };
-  onSubmit = () => {
+  onSubmit = (e) => {
+    e.preventDefault();
     let data = {
       FirstName: this.state.FirstName,
       LastName: this.state.LastName,
@@ -28,21 +29,31 @@ export default class Register extends Component {
       Password: this.state.Password,
     };
 
-    axios
-      .post("http://localhost:5000/register", data)
-      .then((response) => {
-        responseStatus =  response.status;
-      })
-      .catch((err) => {
-        console.log("err" + err);
-      });      
-      this.props.history.push('/success');
-      
+    Axios.post("http://localhost:5000/register", data).then((response) => {
+      console.log(response.data.message);
+      if (response.data) {
+        this.setState({
+          message: response.data.message,
+        });
+      }
+    });
   };
 
   render() {
+    console.log(this.props);
+    let redirectVar = null;
+
+    if (this.state.message === "ok") {
+      localStorage.setItem("register_status", "true");
+      redirectVar = <Redirect to="/success" />;
+      alert("Registered successfully");
+    } else if (this.state.message === "notok") {
+      alert("Registration failed");
+      redirectVar = <Redirect to="/" />;
+    }
     return (
       <div className="Register">
+        {redirectVar}
         <Container className="C">
           <div>
             <form onSubmit={this.onSubmit}>
@@ -159,9 +170,7 @@ export default class Register extends Component {
                 />
               </div>
               <div className="registerButton">
-              <Button type="submit">
-                  Register
-                </Button>
+                <Button type="submit">Register</Button>
                 <div>
                   <p className="AlreadyRegistered">
                     Already registered <a href="/login">log in?</a>
