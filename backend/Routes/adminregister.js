@@ -8,15 +8,8 @@ router.post("/", (req, res) => {
   const hash = bcrypt.hashSync(myPlaintextPassword, 5);
 
   pool.query(
-    "INSERT INTO person (p_firstname,p_lastname,p_id,p_address,dob,password) VALUES (?,?,?,?,?,?)",
-    [
-      req.body.FirstName,
-      req.body.LastName,
-      req.body.Email,
-      req.body.address,
-      req.body.DOB,
-      hash,
-    ],
+    "INSERT INTO vaccinator (e_id,e_name,e_password,vc_name) VALUES (?,?,?,?)",
+    [req.body.Email, req.body.Name, hash, req.body.VCname],
     (err, result) => {
       if (err) {
         console.log(err);

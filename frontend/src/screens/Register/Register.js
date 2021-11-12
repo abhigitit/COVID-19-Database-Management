@@ -27,6 +27,8 @@ export default class Register extends Component {
       LastName: this.state.LastName,
       Email: this.state.Email,
       Password: this.state.Password,
+      DOB: this.state.DOB,
+      address: this.state.address,
     };
 
     Axios.post("http://localhost:5000/register", data).then((response) => {
@@ -144,17 +146,17 @@ export default class Register extends Component {
                   type="text"
                   className="form-control"
                   placeholder="Name"
-                  name="name"
+                  name="Ename"
                   onChange={this.onChange}
-                  value={this.state.fields["name"]}
+                  value={this.state.fields["Ename"]}
                 />
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Phone"
-                  name="phone"
+                  name="Ephone"
                   onChange={this.onChange}
-                  value={this.state.fields["phone"]}
+                  value={this.state.fields["Ephone"]}
                 />
               </div>
 

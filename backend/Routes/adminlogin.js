@@ -6,13 +6,13 @@ const pool = require("../pool.js");
 router.post("/", (req, res) => {
   const enteredPassword = req.body.Password;
   pool.query(
-    "SELECT * from person where p_id = ?",
+    "SELECT * from vaccinator where e_id = ?",
     [req.body.Email],
     (err, result) => {
       if (err || Object.keys(result).length === 0) {
         res.send({ message: "notok" });
       } else {
-        const hashedPassword = result[0].password;
+        const hashedPassword = result[0].e_password;
         bcrypt.compare(
           enteredPassword,
           hashedPassword,

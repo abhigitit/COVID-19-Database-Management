@@ -4,13 +4,13 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  port:"3306",
-  database:"project_v"
+  port: "3306",
+  database: "Vaccination_Drive",
 });
 
-con.connect(function(err) {
+con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 });
 
-module.exports=con;
+module.exports = con;
