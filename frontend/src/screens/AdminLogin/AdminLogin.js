@@ -26,7 +26,7 @@ export default class Login extends Component {
       Email: this.state.Email,
       Password: this.state.Password,
     };
-    Axios.post("http://localhost:5000/adminlogin", data).then((response) => {
+    Axios.post("http://localhost:5000/admin/login", data).then((response) => {
       console.log(response.data.message);
       if (response.data) {
         this.setState({

@@ -5,8 +5,8 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const register = require("./Routes/register");
 const login = require("./Routes/login");
-const adminlogin = require("./Routes/adminlogin");
-const adminregister = require("./Routes/adminregister");
+const admin = require("./Routes/admin");
+const slotbookingfetch = require("./Routes/slotbookingfetch");
 var cors = require("cors");
 
 const app = express();
@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 
 app.use("/register", register);
 app.use("/login", login);
-app.use("/adminlogin", adminlogin);
-app.use("/adminregister", adminregister);
+app.use("/admin", admin);
+app.use("/slotbookingfetch", slotbookingfetch);
 
 const PORT = 5000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
