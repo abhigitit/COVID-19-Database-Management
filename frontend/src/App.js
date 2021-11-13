@@ -10,6 +10,7 @@ import Register from "./screens/Register/Register";
 import SuccessRegister from "./screens/SuccessRegister/SuccessRegister";
 import SlotBooking from "./screens/SlotBooking/SlotBooking";
 import AdminLogin from "./screens/AdminLogin/AdminLogin";
+import AdminManage, { AdminManageList } from "./screens/AdminManage/AdminManageList";
 
 const App = () => (
   <BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => (
       <Route path="/success" component={SuccessRegister} />
       <Route path="/slot" component={SlotBooking} />
       <Route path="/adminlogin" component={AdminLogin} />
+      <Route path="/admin/manage" component={AdminManageList}/>
     </Switch>
     <Footer />
   </BrowserRouter>
