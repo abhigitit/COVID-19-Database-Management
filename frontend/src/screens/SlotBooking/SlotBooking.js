@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './SlotBooking.css'
 import Axios from "axios";
+import { Container,Row , Button} from 'react-bootstrap'
+import moment from 'moment';
+import DatePicker from "react-datepicker";
 export default class SlotBooking extends Component {
   
   constructor(props) {
@@ -15,9 +18,7 @@ export default class SlotBooking extends Component {
     }
   }
   
-
-
-  componentDidMount(props)
+   componentDidMount(props)
   {
     let vaccineNameUrl="http://localhost:5000/slotbookingfetch/vaccine";
     let vaccineCenterUrl="http://localhost:5000/slotbookingfetch/vaccinationcenter";
@@ -64,17 +65,30 @@ export default class SlotBooking extends Component {
           })}
         </select>
 
-        <label >Vaccine Center</label>
+        <label class="labelSlot">Vaccine Center</label>
         <select className="form-control" name="vaccineCenter" onChange={this.handleVaccineCenter}>
           {this.state.vaccineCenters.map(i=>{
             return <option value={i.vc_name} key={i.vc_name}>{i.vc_name}</option>
           })}
         </select>
 
-        <label>Appointment Date</label>
+        <label class="labelSlot">Appointment Date</label>
         <input type="date" className="form-control" name="appointmentDate" onChange={this.handleAppointmentDate}></input>
-        
-        <button className="btn btn-primary mt-4" type="submit">Book Slot</button>
+       
+
+        <label class="labelSlot">Appointment Time</label>
+        <input type="text" className="form-control" name="timeOfSlot"></input>
+
+        <div>
+        <div className = "buttonContainer">
+            < a href ="/login">
+            <Button size='lg' className='landingButton' variant='outline-primary' > Book Slot </Button>
+            </a>
+            < a href ="/">
+            <Button size='lg' className='landingButton' > Logout </Button>
+            </a>
+             </div>
+        </div>
 </form>
       </div>
     )
