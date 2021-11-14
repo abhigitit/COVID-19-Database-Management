@@ -116,3 +116,6 @@ label{
 .form-control{
   background-color: lightgrey !important;
 }
+label.checkbox-label{
+  margin-left: 10px;
+}

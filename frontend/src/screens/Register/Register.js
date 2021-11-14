@@ -3,6 +3,8 @@ import "./Register.css";
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect } from "react-router";
+import moment from 'moment';
+
 
 export default class Register extends Component {
   constructor(props) {
@@ -11,7 +13,19 @@ export default class Register extends Component {
       fields: {},
       errors: {},
       message: "",
+      isSafe: false
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    
+  }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   onChange = (e) => {
@@ -73,6 +87,7 @@ export default class Register extends Component {
                   name="Email"
                   onChange={this.onChange}
                   value={this.state.fields["Email"]}
+                  required
                 />
               </div>
 
@@ -85,6 +100,7 @@ export default class Register extends Component {
                   name="Password"
                   onChange={this.onChange}
                   value={this.state.fields["Password"]}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -96,6 +112,7 @@ export default class Register extends Component {
                   name="FirstName"
                   onChange={this.onChange}
                   value={this.state.fields["FirstName"]}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -107,6 +124,7 @@ export default class Register extends Component {
                   name="LastName"
                   onChange={this.onChange}
                   value={this.state.fields["LastName"]}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -118,6 +136,7 @@ export default class Register extends Component {
                   name="DOB"
                   onChange={this.onChange}
                   value={this.state.fields["DOB"]}
+                  max={moment().format("YYYY-MM-DD")}
                 />
               </div>
               <div className="form-group">
@@ -137,10 +156,11 @@ export default class Register extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter Mobile Phonr"
+                  placeholder="Enter Mobile Phone"
                   name="mobile"
                   onChange={this.onChange}
                   value={this.state.fields["mobile"]}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -177,8 +197,21 @@ export default class Register extends Component {
                   value={this.state.fields["EContactPhone"]}
                 />
               </div>
+              <div className="form-group">
+              <input
+                  name="isSafe"                  
+                  type="checkbox"
+                  checked={this.state.isSafe}
+                  onChange={this.handleInputChange} />
+              <label className="checkbox-label">
+                  I dont have any covid symptoms from past 15 days
+              </label>
+
+              </div>
               <div className="registerButton">
-                <Button type="submit">Register</Button>
+                <Button 
+                disabled={!this.state.isSafe} 
+                type="submit">Register</Button>
                 <div>
                   <p className="AlreadyRegistered">
                     Already registered <a href="/login">log in?</a>
