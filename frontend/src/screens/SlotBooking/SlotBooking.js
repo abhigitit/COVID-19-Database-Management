@@ -57,7 +57,7 @@ export default class SlotBooking extends Component {
     return (
       <div className="container mt-2">
   <form onSubmit={this.handleOnSubmit} name=""> 
-        <label >Vaccine Name</label>
+        <label id = "label" >Vaccine Name</label>
         <select className="form-control" name="vaccineName" onChange={this.handleVaccineName}>
           {this.state.vaccineName.map(i=>{
             return <option value={i.v_name} key={i.v_name}>{i.v_name}</option>
