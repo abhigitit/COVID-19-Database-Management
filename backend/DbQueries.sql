@@ -103,7 +103,7 @@ CREATE TABLE Vaccinator (
 );
 
 CREATE TABLE Slot (
-    slot_id VARCHAR(10),
+    slot_id VARCHAR(100),
     slot_date DATE,
     slot_time TIME,
     isAuthorized BOOL,

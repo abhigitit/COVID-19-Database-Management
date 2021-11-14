@@ -29,6 +29,10 @@ export default class Register extends Component {
       Password: this.state.Password,
       DOB: this.state.DOB,
       address: this.state.address,
+      HomePhone: this.state.homePhone,
+      Mobile: this.state.mobile,
+      ECName: this.state.EContactName,
+      ECPhone: this.state.EContactPhone
     };
 
     Axios.post("http://localhost:5000/register", data).then((response) => {
@@ -61,30 +65,6 @@ export default class Register extends Component {
             <form onSubmit={this.onSubmit}>
               <h3>Register</h3>
               <div className="form-group">
-                <label>First name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="First name"
-                  name="FirstName"
-                  onChange={this.onChange}
-                  value={this.state.fields["FirstName"]}
-                />
-              </div>
-
-              <div className="form-group">
-                <label>Last name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Last name"
-                  name="LastName"
-                  onChange={this.onChange}
-                  value={this.state.fields["LastName"]}
-                />
-              </div>
-
-              <div className="form-group">
                 <label>Email</label>
                 <input
                   type="email"
@@ -96,6 +76,39 @@ export default class Register extends Component {
                 />
               </div>
 
+               <div className="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                  name="Password"
+                  onChange={this.onChange}
+                  value={this.state.fields["Password"]}
+                />
+              </div>
+              <div className="form-group">
+                <label>First name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter First name"
+                  name="FirstName"
+                  onChange={this.onChange}
+                  value={this.state.fields["FirstName"]}
+                />
+              </div>
+              <div className="form-group">
+                <label>Last name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Last name"
+                  name="LastName"
+                  onChange={this.onChange}
+                  value={this.state.fields["LastName"]}
+                />
+              </div>
               <div className="form-group">
                 <label>Date of Birth</label>
                 <input
@@ -107,7 +120,6 @@ export default class Register extends Component {
                   value={this.state.fields["DOB"]}
                 />
               </div>
-
               <div className="form-group">
                 <label>Address</label>
                 <input
@@ -121,54 +133,48 @@ export default class Register extends Component {
               </div>
 
               <div className="form-group">
-                <label>Phone Number</label>
+                <label>Mobile</label>
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter Home Phone"
-                  name="homephone"
-                  onChange={this.onChange}
-                  value={this.state.fields["homephone"]}
-                />
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Mobile"
+                  placeholder="Enter Mobile Phonr"
                   name="mobile"
                   onChange={this.onChange}
                   value={this.state.fields["mobile"]}
                 />
               </div>
-
               <div className="form-group">
-                <label>Emergency Contact</label>
+                <label>Home Phone</label>
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Name"
-                  name="Ename"
+                  placeholder="Enter Home Phone"
+                  name="homePhone"
                   onChange={this.onChange}
-                  value={this.state.fields["Ename"]}
-                />
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Phone"
-                  name="Ephone"
-                  onChange={this.onChange}
-                  value={this.state.fields["Ephone"]}
+                  value={this.state.fields["homePhone"]}
                 />
               </div>
 
               <div className="form-group">
-                <label>Password</label>
+                <label>Emergency Contact Name</label>
                 <input
-                  type="password"
+                  type="text"
                   className="form-control"
-                  placeholder="Enter password"
-                  name="Password"
+                  placeholder="Enter Emergency Contact Name"
+                  name="EContactName"
                   onChange={this.onChange}
-                  value={this.state.fields["Password"]}
+                  value={this.state.fields["EContactName"]}
+                />
+              </div>
+              <div className="form-group">
+                <label>Emergency Contact Phone</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Emergency Contact Phone"
+                  name="EContactPhone"
+                  onChange={this.onChange}
+                  value={this.state.fields["EContactPhone"]}
                 />
               </div>
               <div className="registerButton">
