@@ -53,7 +53,7 @@ router.post("/register", (req, res) => {
 
 router.post("/manage", (req, res) => {
   pool.query(
-    "UPDATE contains SET stockAvailable = ? WHERE v_name = ? and vc_name = ? ",
+    "UPDATE contains SET stockAvailable = stockAvailable + ? WHERE v_name = ? and vc_name = ? ",
     [
       req.body.stockAvailable,
       req.body.vaccine,
