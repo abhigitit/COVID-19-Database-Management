@@ -51,4 +51,25 @@ router.post("/register", (req, res) => {
   );
 });
 
+router.post("/manage", (req, res) => {
+  pool.query(
+    "UPDATE contains SET stockAvailable = ? WHERE v_name = ? and vc_name = ? ",
+    [
+      req.body.stockAvailable,
+      req.body.vaccine,
+      hash,
+      req.body.vaccinationCenter,
+    ],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ message: "notok" });
+      } else {
+        console.log("Registered succesfully" + JSON.stringify(result));
+        res.send({ message: "ok" });
+      }
+    }
+  );
+});
+
 module.exports = router;
