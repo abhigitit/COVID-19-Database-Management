@@ -12,6 +12,7 @@ import SlotBooking from "./screens/SlotBooking/SlotBooking";
 import AdminLogin from "./screens/AdminLogin/AdminLogin";
 import AdminManage, { AdminManageList } from "./screens/AdminManage/AdminManageList";
 import SlotBookingSuccess from "./screens/SlotBookingSuccess/SlotSuccess";
+import ManageStock from "./screens/AdminManage/Stock/ManageStock";
 
 const App = () => (
   <BrowserRouter>
@@ -26,6 +27,8 @@ const App = () => (
       <Route path="/adminlogin" component={AdminLogin} />
       <Route path="/admin/manage" component={AdminManageList}/>
       <Route path="/slotsuccess" component={SlotBookingSuccess}/>
+      <Route path="/managestock" component={ManageStock}/>
+
     </Switch>
     <Footer />
   </BrowserRouter>

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "./SlotBooking.css";
 import Axios from "axios";
-import { Container, Row, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import moment from "moment";
-import DatePicker from "react-datepicker";
 export default class SlotBooking extends Component {
   constructor(props) {
     super(props);
@@ -32,10 +31,6 @@ export default class SlotBooking extends Component {
         });
       }
     );
-    // Axios.get(vaccineNameUrl).then((res)=>{
-    //   console.log(res.data)
-    //   this.setState({vaccineName:res.data})
-    // })
   }
 
   handleOnSubmit = (e) => {
@@ -111,6 +106,7 @@ export default class SlotBooking extends Component {
             className="form-control"
             name="appointmentDate"
             onChange={this.handleAppointmentDate}
+            min={moment().format("YYYY-MM-DD")}
           ></input>
 
           <label class="labelSlot">Appointment Time</label>

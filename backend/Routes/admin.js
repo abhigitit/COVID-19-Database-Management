@@ -57,7 +57,6 @@ router.post("/manage", (req, res) => {
     [
       req.body.stockAvailable,
       req.body.vaccine,
-      hash,
       req.body.vaccinationCenter,
     ],
     (err, result) => {
@@ -72,4 +71,44 @@ router.post("/manage", (req, res) => {
   );
 });
 
+router.get("/decline", (req, res) => {
+  let selectedvaccine, selectedVaccinationCenter;
+  pool.query("select vc_name,v_name from slot where slot_id= ?",[req.body.SlotId],
+     (err, result) => {
+       if (err) {
+         console.log(err);
+         res.send({ message: "notok" });
+       } else {
+        selectedVaccinationCenter = result[0]['vc_name'];
+        selectedvaccine = result[0]['v_name'];
+        pool.query("UPDATE contains SET stockAvailable = stockAvailable + 1 Where v_name = ? AND vvc_name =?",
+        [selectedvaccine,selectedVaccinationCenter],
+        (err, result)=>{
+          if (err) {
+            console.log(err);
+            res.send({ message: "notok" });
+          } else {
+            console.log("Vaccine Quantity updated successfully" + JSON.stringify(result));
+            res.send({ message: "ok" });
+          }
+        });
+       }
+     })
+    });
+
+
+router.post("/authorize", (req, res) => {
+  selectedSlotId = req.body.SlotId;
+  pool.query("UPDATE slot SET isAuthorized = 1 Where slot_id = ?",
+     [selectedSlotId],
+     (err, result) => {
+       if (err) {
+         console.log(err);
+         res.send({ message: "notok" });
+       } else {
+         console.log("Registered succesfully" + JSON.stringify(result));
+         res.send({ message: "ok" });
+       }
+     })
+    });
 module.exports = router;
