@@ -10,13 +10,20 @@ export default class ManageStock extends Component {
     super(props)
   
     this.state = {
+      fields: {},
        vaccineName:[],
        vaccineCenters:[],
        vaccineNameControl:'',
        vaccineCenterControl:'',
-       appointmentDate:'',
     }
   }
+
+  onChange = (e) => {
+    console.log("e.target.name" + e.target.name);
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
   
    componentDidMount(props)
   {
@@ -32,8 +39,7 @@ export default class ManageStock extends Component {
     }) 
   }
 
-  handleOnSubmit=(e)=>{
-    alert(this.state.vaccineCenterControl)
+  handleOnSubmit=(e)=>{    
     console.log(this.state.vaccineNameControl)
     console.log(this.state.appointmentDate)
     e.preventDefault();
@@ -61,14 +67,10 @@ export default class ManageStock extends Component {
     console.log(e.target.value)
     this.setState({vaccineCenterControl:e.target.value})
   }
-  handleAppointmentDate=(e)=>{
-    console.log(e.target.value)
-    this.setState({appointmentDate:e.target.value})
-  }
   render() {
     return (
       <div className="container mt-2">
-  <form onSubmit={this.handleOnSubmit} name=""> 
+    <form onSubmit={this.handleOnSubmit} name=""> 
         <label id = "label" >Vaccine Name</label>
         <select className="form-control" name="vaccineName" onChange={this.handleVaccineName}>
           {this.state.vaccineName.map(i=>{
@@ -84,7 +86,15 @@ export default class ManageStock extends Component {
         </select>
         
         <label class="labelSlot">Quantity</label>
-        <input type="text" className="form-control" name="quantity"></input>
+        <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Quantity"
+                  name="quantity"
+                  onChange={this.onChange}
+                  value={this.state.fields["Quantity"]}
+                  required
+                />
 
         <div>
         <div className = "buttonContainer">
