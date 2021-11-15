@@ -3,6 +3,8 @@ import "./SlotBooking.css";
 import Axios from "axios";
 import { Button } from "react-bootstrap";
 import moment from "moment";
+import { Redirect } from "react-router";
+
 export default class SlotBooking extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,11 @@ export default class SlotBooking extends Component {
       vaccineNameControl: "",
       vaccineCenterControl: "",
       appointmentDate: "",
+      appointmentTime: "",
       message: "",
+      hideSuccess: true,
+      successEmail: "",
+      slotId: "",
     };
   }
 
@@ -34,10 +40,33 @@ export default class SlotBooking extends Component {
   }
 
   handleOnSubmit = (e) => {
+    e.preventDefault();
     console.log(this.state.vaccineCenterControl);
     console.log(this.state.vaccineNameControl);
     console.log(this.state.appointmentDate);
-    e.preventDefault();
+    console.log(this.state.appointmentTime);
+
+    let data = {
+      VC_name: this.state.vaccineCenterControl,
+      V_name: this.state.vaccineNameControl,
+      FDate: this.state.appointmentDate,
+      Ftime: this.state.appointmentTime,
+    };
+    Axios.post("http://localhost:5000/slotbookingfetch/slotbook", data).then(
+      (response) => {
+        console.log(response.data.message);
+        if (response.status === 200) {
+          var slotId = new String(response.data.id);
+          this.setState({
+            message: response.data.message,
+            hideSuccess: false,
+            successEmail: JSON.parse(localStorage.getItem("login_status"))
+              .emailId,
+            slotId: slotId.toString(),
+          });
+        }
+      }
+    );
   };
   handleVaccineName = (e) => {
     console.log(e.target.value);
@@ -67,10 +96,32 @@ export default class SlotBooking extends Component {
     console.log(e.target.value);
     this.setState({ appointmentDate: e.target.value });
   };
+  handleAppointmentTime = (e) => {
+    console.log(e.target.value);
+    this.setState({ appointmentTime: e.target.value });
+  };
   render() {
+    let redirectVar = null;
+
+    if (this.state.successEmail) {
+      redirectVar = (
+        <Redirect
+          to={{
+            pathname: "/slotBookingSuccess",
+            state: {
+              slotId: this.state.slotId,
+              slotDate: this.state.appointmentDate,
+              slotTime: this.state.appointmentTime,
+            },
+          }}
+        />
+      );
+    }
+
     return (
       <div className="container mt-2">
-        <form onSubmit={this.handleOnSubmit} name="">
+        {redirectVar}
+        <form name="" hidden={!this.state.hideSuccess}>
           <label class="labelSlot">Vaccine Center</label>
           <select
             className="form-control"
@@ -110,7 +161,12 @@ export default class SlotBooking extends Component {
           ></input>
 
           <label class="labelSlot">Appointment Time</label>
-          <input type="text" className="form-control" name="timeOfSlot"></input>
+          <input
+            type="text"
+            className="form-control"
+            name="timeOfSlot"
+            onChange={this.handleAppointmentTime}
+          ></input>
 
           <div>
             <div className="buttonContainer">
@@ -119,6 +175,7 @@ export default class SlotBooking extends Component {
                   size="lg"
                   className="landingButton"
                   variant="outline-primary"
+                  onClick={this.handleOnSubmit}
                 >
                   {" "}
                   Book Slot{" "}

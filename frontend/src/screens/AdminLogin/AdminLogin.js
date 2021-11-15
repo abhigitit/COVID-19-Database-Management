@@ -41,12 +41,18 @@ export default class Login extends Component {
     let redirectVar = null;
 
     if (this.state.message === "ok") {
-      localStorage.setItem("login_status", "true");
+      localStorage.setItem(
+        "login_status",
+        JSON.stringify({
+          status: "true",
+          emailId: this.state.Email,
+        })
+      );
       alert("Logged in successfully");
-      redirectVar = <Redirect to="/slot" />;
+      redirectVar = <Redirect to="/admin/manage" />;
     } else if (this.state.message === "notok") {
       alert("Log in failed");
-      redirectVar = <Redirect to="/" />;
+      redirectVar = <Redirect to="/adminlogin" />;
     }
     return (
       <div className="Login">

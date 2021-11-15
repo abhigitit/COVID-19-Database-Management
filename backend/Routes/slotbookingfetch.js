@@ -41,6 +41,22 @@ router.get("/vaccinationcenter", (req, res) => {
   });
 });
 
+router.post("/slotbook", (req, res) => {
+  let id = Math.floor(Math.random() * 10000);
+  pool.query(
+    "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,'VC101@gmail.com','abhiteja.mandava98@gmail.com');",
+    [req.body.VC_name, req.body.V_name, req.body.FDate, req.body.Ftime, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ message: "notok" });
+      } else {
+        res.send({ id: id });
+      }
+    }
+  );
+});
+
 router.get("/slot", (req, res) => {
   pool.query("SELECT * from slot", (err, result) => {
     if (err) {
@@ -49,5 +65,18 @@ router.get("/slot", (req, res) => {
       res.send(result);
     }
   });
+});
+
+router.post("/getSlotsById", (req, res) => {
+  pool.query(
+    "SELECT * from slot where p_id = ? and isAuhtorized = NULL",
+    (err, result) => {
+      if (err) {
+        res.send({ message: "notok" });
+      } else {
+        res.send(result);
+      }
+    }
+  );
 });
 module.exports = router;
