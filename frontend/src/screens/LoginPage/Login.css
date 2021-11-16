@@ -17,6 +17,11 @@
   display: flex;
   justify-content: space-evenly;
 }
+.buttonContainer1 {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .Login{
   min-height: 93vh;

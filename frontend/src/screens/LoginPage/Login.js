@@ -7,6 +7,7 @@ import { Redirect } from "react-router";
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    this.fgtpwd = this.fgtpwd.bind(this);
     this.state = {
       fields: {},
       errors: {},
@@ -35,6 +36,10 @@ export default class Login extends Component {
       }
     });
   };
+
+  fgtpwd() {
+    alert('Password reset mail has been sent!');
+  }
 
   render() {
     console.log(this.props);
@@ -91,10 +96,10 @@ export default class Login extends Component {
                   Log In
                 </button>
               </div>
-              <div className="forgot-password">
-                <p>
-                  Forgot <a href="/">password?</a>
-                </p>
+              <div className="buttonContainer1">
+                <button onClick={this.fgtpwd}>
+                Forgot password?
+                </button>
               </div>
             </form>
           </div>
