@@ -170,7 +170,7 @@ export default class SlotBooking extends Component {
 
           <div>
             <div className="buttonContainer">
-              <a href="/login">
+              <a href="/slotBookingSuccess">
                 <Button
                   size="lg"
                   className="landingButton"
