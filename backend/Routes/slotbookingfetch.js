@@ -2,6 +2,7 @@ const express = require("express");
 const con = require("../pool.js");
 const router = express.Router();
 const pool = require("../pool.js");
+const uuid = require('uuid');
 
 router.get("/vaccine", (req, res) => {
   pool.query(
@@ -42,7 +43,8 @@ router.get("/vaccinationcenter", (req, res) => {
 });
 
 router.post("/slotbook", (req, res) => {
-  let id = Math.floor(Math.random() * 10000);
+
+  let id = uuid.v1();
   pool.query(
     "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,'VC101@gmail.com',?);",
     [
