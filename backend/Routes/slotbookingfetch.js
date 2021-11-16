@@ -44,14 +44,36 @@ router.get("/vaccinationcenter", (req, res) => {
 router.post("/slotbook", (req, res) => {
   let id = Math.floor(Math.random() * 10000);
   pool.query(
-    "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,'VC101@gmail.com','abhiteja.mandava98@gmail.com');",
-    [req.body.VC_name, req.body.V_name, req.body.FDate, req.body.Ftime, id],
+    "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,'VC101@gmail.com',?);",
+    [
+      req.body.VC_name,
+      req.body.V_name,
+      req.body.FDate,
+      req.body.Ftime,
+      id,
+      req.body.Email,
+    ],
     (err, result) => {
       if (err) {
         console.log(err);
         res.send({ message: "notok" });
       } else {
         res.send({ id: id });
+      }
+    }
+  );
+});
+
+router.post("/updateStockOnBooking", (req, res) => {
+  pool.query(
+    "UPDATE contains SET stockAvailable = stockAvailable -1 WHERE v_name = ? and vc_name = ? ",
+    [req.body.V_name, req.body.VC_name],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ message: "stock not uodated after slot booking" });
+      } else {
+        res.send({ message: "stock updated after slot booking" });
       }
     }
   );

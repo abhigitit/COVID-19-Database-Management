@@ -9,7 +9,6 @@ export default class ManageStock extends Component {
     super(props);
 
     this.state = {
-<<<<<<< HEAD
       vaccineName: [],
       vaccineCenters: [],
       vaccineNameControl: "",
@@ -36,40 +35,6 @@ export default class ManageStock extends Component {
   }
 
   handleOnSubmit = (e) => {
-=======
-      fields: {},
-       vaccineName:[],
-       vaccineCenters:[],
-       vaccineNameControl:'',
-       vaccineCenterControl:'',
-    }
-  }
-
-  onChange = (e) => {
-    console.log("e.target.name" + e.target.name);
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-  
-   componentDidMount(props)
-  {
-    let vaccineNameUrl="http://localhost:5000/slotbookingfetch/vaccine";
-    let vaccineCenterUrl="http://localhost:5000/slotbookingfetch/vaccinationcenter";
-    Axios.all([Axios.get(vaccineNameUrl),Axios.get(vaccineCenterUrl)]).then((res)=>{
-      this.setState({
-        vaccineName:res[0].data,
-        vaccineCenters:res[1].data,
-        vaccineNameControl:res[0].data[0]?.v_name,
-        vaccineCenterControl:res[1].data[0]?.vc_name
-      })
-    }) 
-  }
-
-  handleOnSubmit=(e)=>{    
-    console.log(this.state.vaccineNameControl)
-    console.log(this.state.appointmentDate)
->>>>>>> temp-branch
     e.preventDefault();
     alert(this.state.vaccineCenterControl);
     console.log(this.state.vaccineNameControl);
@@ -90,7 +55,6 @@ export default class ManageStock extends Component {
     });
   };
 
-<<<<<<< HEAD
   handleVaccineName = (e) => {
     console.log(e.target.value);
     this.setState({ vaccineNameControl: e.target.value });
@@ -144,45 +108,6 @@ export default class ManageStock extends Component {
             name="quantity"
             onChange={this.handleQuantity}
           ></input>
-=======
- 
-  handleVaccineName=(e)=>{
-    console.log(e.target.value)
-    this.setState({vaccineNameControl:e.target.value})
-  }
-  handleVaccineCenter=(e)=>{
-    console.log(e.target.value)
-    this.setState({vaccineCenterControl:e.target.value})
-  }
-  render() {
-    return (
-      <div className="container mt-2">
-    <form onSubmit={this.handleOnSubmit} name=""> 
-        <label id = "label" >Vaccine Name</label>
-        <select className="form-control" name="vaccineName" onChange={this.handleVaccineName}>
-          {this.state.vaccineName.map(i=>{
-            return <option value={i.v_name} key={i.v_name}>{i.v_name}</option>
-          })}
-        </select>
-
-        <label class="labelSlot">Vaccine Center</label>
-        <select className="form-control" name="vaccineCenter" onChange={this.handleVaccineCenter}>
-          {this.state.vaccineCenters.map(i=>{
-            return <option value={i.vc_name} key={i.vc_name}>{i.vc_name}</option>
-          })}
-        </select>
-        
-        <label class="labelSlot">Quantity</label>
-        <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Quantity"
-                  name="quantity"
-                  onChange={this.onChange}
-                  value={this.state.fields["Quantity"]}
-                  required
-                />
->>>>>>> temp-branch
 
           <div>
             <div className="buttonContainer">

@@ -20,6 +20,7 @@ export default class SlotBooking extends Component {
       hideSuccess: true,
       successEmail: "",
       slotId: "",
+      Email: JSON.parse(localStorage.getItem("login_status")).emailId,
     };
   }
 
@@ -41,16 +42,17 @@ export default class SlotBooking extends Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.vaccineCenterControl);
-    console.log(this.state.vaccineNameControl);
+    alert(this.state.vaccineCenterControl);
+    alert(this.state.vaccineNameControl);
     console.log(this.state.appointmentDate);
     console.log(this.state.appointmentTime);
-
+    console.log(this.state.Email);
     let data = {
       VC_name: this.state.vaccineCenterControl,
       V_name: this.state.vaccineNameControl,
       FDate: this.state.appointmentDate,
       Ftime: this.state.appointmentTime,
+      Email: this.state.Email,
     };
     Axios.post("http://localhost:5000/slotbookingfetch/slotbook", data).then(
       (response) => {
@@ -64,9 +66,17 @@ export default class SlotBooking extends Component {
               .emailId,
             slotId: slotId.toString(),
           });
-        }
+          Axios.post(
+            "http://localhost:5000/slotbookingfetch/updateStockOnBooking",
+            data
+          ).then((response) => {
+            console.log(response.data.message);
+            if (response.status === 200) {
+              alert("Stock reduced");
+            }
+          });
       }
-    );
+      });
   };
   handleVaccineName = (e) => {
     console.log(e.target.value);
