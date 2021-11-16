@@ -162,7 +162,7 @@ export default class SlotBooking extends Component {
 
           <label class="labelSlot">Appointment Time</label>
           <input
-            type="text"
+            type="time"
             className="form-control"
             name="timeOfSlot"
             onChange={this.handleAppointmentTime}
