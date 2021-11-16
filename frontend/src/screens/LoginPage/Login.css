@@ -20,10 +20,13 @@
   border: ;
   display: flex;
   justify-content: space-evenly;
+  position: absolute;
 }
 
 .fgtpwd{
   border: none;
+  background: none;
+  color: cornflowerblue;
 }
 
 .Login{
