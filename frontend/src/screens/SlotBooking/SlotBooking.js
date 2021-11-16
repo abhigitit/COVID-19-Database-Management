@@ -12,8 +12,10 @@ export default class SlotBooking extends Component {
     this.state = {
       vaccineName: [],
       vaccineCenters: [],
+      sponsor :[],
       vaccineNameControl: "",
       vaccineCenterControl: "",
+      sponsorcontrol:"",
       appointmentDate: "",
       appointmentTime: "",
       message: "",
@@ -28,13 +30,16 @@ export default class SlotBooking extends Component {
     let vaccineNameUrl = "http://localhost:5000/slotbookingfetch/vaccine";
     let vaccineCenterUrl =
       "http://localhost:5000/slotbookingfetch/vaccinationcenter";
-    Axios.all([Axios.get(vaccineNameUrl), Axios.get(vaccineCenterUrl)]).then(
+    let sponsor = "http://localhost:5000/slotbookingfetch/sponsor";
+    Axios.all([Axios.get(vaccineNameUrl), Axios.get(vaccineCenterUrl), Axios.get(sponsor)]).then(
       (res) => {
         this.setState({
           vaccineName: res[0].data,
           vaccineCenters: res[1].data,
+          sponsor:res[2].data,
           vaccineNameControl: res[0].data[0]?.v_name,
           vaccineCenterControl: res[1].data[0]?.vc_name,
+          sponsorControl: res[2].data[0]?.s_name
         });
       }
     );
@@ -44,6 +49,7 @@ export default class SlotBooking extends Component {
     e.preventDefault();
     alert(this.state.vaccineCenterControl);
     alert(this.state.vaccineNameControl);
+    alert(this.state.sponsorControl);
     console.log(this.state.appointmentDate);
     console.log(this.state.appointmentTime);
     console.log(this.state.Email);
@@ -53,6 +59,7 @@ export default class SlotBooking extends Component {
       FDate: this.state.appointmentDate,
       Ftime: this.state.appointmentTime,
       Email: this.state.Email,
+      sponsorName: this.state.sponsorControl
     };
     Axios.post("http://localhost:5000/slotbookingfetch/slotbook", data).then(
       (response) => {
@@ -100,6 +107,10 @@ export default class SlotBooking extends Component {
         }
       }
     );
+  };
+  handleSponsor = (e) => {
+    console.log(e.target.value);
+    this.setState({ sponsorControl: e.target.value });
   };
 
   handleAppointmentDate = (e) => {
@@ -156,6 +167,21 @@ export default class SlotBooking extends Component {
               return (
                 <option value={i.v_name} key={i.v_name}>
                   {i.v_name}
+                </option>
+              );
+            })}
+          </select>
+
+          <label id="label">Sponsor</label>
+          <select
+            className="form-control"
+            name="sponsor"
+            onChange={this.handleSponsor}
+          >
+            {this.state.sponsor.map((i) => {
+              return (
+                <option value={i.s_name} key={i.s_name}>
+                  {i.s_name}
                 </option>
               );
             })}

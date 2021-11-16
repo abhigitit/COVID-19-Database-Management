@@ -18,6 +18,19 @@ router.get("/vaccine", (req, res) => {
   );
 });
 
+router.get("/sponsor", (req, res) => {
+  pool.query(
+    "SELECT s_name from sponsor",
+    (err, result) => {
+      if (err) {
+        res.send({ message: "notok" });
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 router.post("/vaccine", (req, res) => {
   pool.query(
     "SELECT v_name from contains where vc_name = ? and stockAvailable > 0",
@@ -60,11 +73,19 @@ router.post("/slotbook", (req, res) => {
         console.log(err);
         res.send({ message: "notok" });
       } else {
-        res.send({ id: id });
-      }
-    }
-  );
-});
+        pool.query(
+          "UPDATE person set sponsor_name = ?",
+          [req.body.sponsorName,],(err, result) => {
+            if (err) {
+              console.log(err);
+              res.send({ message: "notok" });
+            } 
+            else{
+              res.send({ id: id });
+            };
+         })}})
+
+        });
 
 router.post("/updateStockOnBooking", (req, res) => {
   pool.query(

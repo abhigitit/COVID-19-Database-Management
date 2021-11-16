@@ -97,7 +97,7 @@ export default class Login extends Component {
                 </button>
               </div>
               <div className="buttonContainer1">
-                <button onClick={this.fgtpwd}>
+                <button className="fgtpwd" onClick={this.fgtpwd}>
                 Forgot password?
                 </button>
               </div>

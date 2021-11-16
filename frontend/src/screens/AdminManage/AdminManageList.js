@@ -57,7 +57,7 @@ export class AdminManageList extends Component {
                 {/* </ul> */}
                 < a href ="/managestock">
                 <Button 
-                type="submit">Register</Button>
+                type="submit">Manage Stock</Button>
                 </a>
                 <Button 
                 type="submit">Log Out</Button>
