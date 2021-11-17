@@ -9,6 +9,7 @@ import Login from "./screens/LoginPage/Login";
 import Register from "./screens/Register/Register";
 import SuccessRegister from "./screens/SuccessRegister/SuccessRegister";
 import SlotBooking from "./screens/SlotBooking/SlotBooking";
+import SlotBookingUpdate from "./screens/SlotBookingUpdate/SlotBookingUpdate";
 import AdminLogin from "./screens/AdminLogin/AdminLogin";
 import AdminManage, {
   AdminManageList,
@@ -26,6 +27,7 @@ const App = () => (
       <Route path="/register" component={Register} />
       <Route path="/success" component={SuccessRegister} />
       <Route path="/slot" component={SlotBooking} />
+      <Route path="/slotUpdate" component={SlotBookingUpdate} />
       <Route path="/adminlogin" component={AdminLogin} />
       <Route path="/admin/manage" component={AdminManageList} />
       <Route path="/slotsuccess" component={SlotBookingSuccess} />

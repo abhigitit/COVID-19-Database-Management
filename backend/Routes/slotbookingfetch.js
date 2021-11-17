@@ -31,6 +31,27 @@ router.get("/sponsor", (req, res) => {
   );
 });
 
+router.post("/slotUpdate", (req, res) => {
+  console.log(req.body.Slotid);
+   pool.query("Update slot Set vc_name = ?,v_name = ?, slot_date=?, slot_time = ? where slot_id = ? ",
+    [
+      req.body.VC_name,
+      req.body.V_name,
+      req.body.FDate,
+      req.body.Ftime,
+      req.body.Slotid
+    ],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.send({ message: "notok" });
+      } else {
+        res.send({ id : req.body.Slotid });
+      }
+    }
+  );
+  });
+
 router.post("/vaccine", (req, res) => {
   pool.query(
     "SELECT v_name from contains where vc_name = ? and stockAvailable > 0",

@@ -25,6 +25,7 @@ export default class SlotSuccess extends Component {
   }
 
   render() {
+    localStorage.setItem("slot-id",this.props.location.state.slotId);
     return (
       <div className="D">
         <Container>
@@ -39,7 +40,7 @@ export default class SlotSuccess extends Component {
                 <p>Your Slot Time is : {this.state.slotTime}</p>
               </div>
               <div className="buttonContainer">
-                <a href="/slot">
+                <a href="/slotUpdate">
                   <Button
                     size="lg"
                     className="landingButton"
