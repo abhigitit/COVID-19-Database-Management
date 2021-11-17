@@ -28,6 +28,13 @@
   height: 55px;
 }
 
+.landingButton1 {
+  
+  width: 160px;
+  height: 55px;
+  margin-left: 20px;
+}
+
 @media only screen and (min-width: 1200px) {
   
   .title {

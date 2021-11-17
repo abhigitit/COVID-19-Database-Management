@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import Axios  from "axios";
 import React, { Component } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { Redirect } from "react-router";
@@ -11,6 +11,7 @@ export default class SlotSuccess extends Component {
       slotId: "",
       slotDate: "",
       slotTime: "",
+      cmessage:""
     };
   }
 
@@ -20,8 +21,26 @@ export default class SlotSuccess extends Component {
         slotId: this.props.location.state.slotId,
         slotDate: this.props.location.state.slotDate,
         slotTime: this.props.location.state.slotTime,
+        cmessage:""
       });
     }
+  }
+  clear = (e)=>{
+    let sid = localStorage.getItem("slot-id"); 
+     let data = {
+       SlotId: sid
+     };
+    Axios.post("http://localhost:5000/admin/decline", data).then((response)=>{
+      alert("Slot Cancelled Successfully");
+      if (response.data) {
+        alert("data");
+        this.setState({
+          cmessage: response.data.message,
+        });
+      }
+
+    });
+    alert("slot cancelled successfully");
   }
 
   render() {
@@ -43,19 +62,24 @@ export default class SlotSuccess extends Component {
                 <a href="/slotUpdate">
                   <Button
                     size="lg"
-                    className="landingButton"
-                    variant="outline-primary"
-                  >
-                    {" "}
-                    Manage my slot{" "}
+                    className="landingButton1">
+                    Manage slot
                   </Button>
                 </a>
+              <a href="/slot">
+]                  <Button
+                    size="lg"
+                    onClick = {this.clear}
+                    className="landingButton1">
+                    Cancel slot
+                  </Button>
+                  </a>
                 <a href="/">
-                  <Button size="lg" className="landingButton">
-                    {" "}
-                    Logout{" "}
+                  <Button size="lg" 
+                  className="landingButton1">
+                    Logout
                   </Button>
-                </a>
+                  </a>
               </div>
             </div>
           </Row>

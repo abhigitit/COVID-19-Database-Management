@@ -12,6 +12,9 @@ export default class Login extends Component {
       fields: {},
       errors: {},
       message: "",
+      // slot:"",
+      // date:"",
+      // time:""
     };
   }
   onChange = (e) => {
@@ -31,7 +34,11 @@ export default class Login extends Component {
       console.log(response.data.message);
       if (response.data) {
         this.setState({
-          message: response.data.message,
+          message: response.data.message, 
+          // slot:response.data.slot_id,
+          // date:response.data.sdate,
+          // time:response.data.stime
+
         });
       }
     });
@@ -58,6 +65,47 @@ export default class Login extends Component {
     } else if (this.state.message === "notok") {
       alert("Log in failed");
       redirectVar = <Redirect to="/" />;
+    }
+    else if(this.state.message === "hasslot"){
+      alert("has slot");
+      // redirectVar = (
+      //   <Redirect
+      //   to={{
+      //     pathname: "/slotBookingSuccess",
+      //     state: {
+      //       slotId: this.state.slot,
+      //       slotDate: this.state.date,
+      //       slotTime: this.state.time
+      //     },
+      //   }}
+      // />
+      // );
+
+
+
+      // localStorage.setItem(
+      //   "p_id",
+      //   JSON.stringify({
+      //     status: "true",
+      //     emailId: this.state.Email,
+      //   })
+      // );
+      // alert(this.state.date);
+      // alert(this.state.slot);
+
+      // alert(typeof(this.state.time));
+      // redirectVar = null;
+      // <Redirect
+      //     to={{
+      //       pathname: "/slotBookingSuccess",
+      //       state: {
+      //         slotId: this.state.slot,
+      //         slotDate: this.state.date,
+      //         slotTime: this.state.time
+      //       },
+      //     }}
+      //   />
+
     }
     return (
       <div className="Login">
