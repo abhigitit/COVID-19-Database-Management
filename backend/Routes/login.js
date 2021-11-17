@@ -25,29 +25,30 @@ router.post("/", (req, res) => {
           function (err, isMatch) {
             if (err || !isMatch) {
               res.send({ message: "notok" });
-              console.log("login failed");
+              console.log("Incorrect password");
             } else {
-              console.log("login succeed");
-              res.send({ message: "ok" });
-              //let date = new Date().toISOString().split('T')[0];
-              // pool.query("select * from slot where  isAuthorized = 0 and isDeclined=0 and slot_date > ? order by slot_date ",
-              // [date],(err,result)=>{
-              //   if (err) {
-              //      console.log(err);
-              //      res.send({ message: "notok" });
-              //   } 
-              //   // else if(result.length>0){
-              //   //   console.log(result);
-              //   //   let slotid,date,time;
-              //   //   slotid = result[0]['slot_id'];
-              //   //   date = new Date(result[0]['slot_date']).toISOString().split('T')[0];
-              //   //   time = result[0]['slot_time'];                       
-              //   //   res.send({ message: "hasslot", slot_id:slotid,sdate:date,stime:time });
-              //   // }
-              //   else{
-              //   res.send({ message: "ok" });
-              //   }
-              // });
+              console.log("login succeeded");
+              let date = new Date().toISOString().split('T')[0];
+              pool.query("select * from slot where p_id=? and  isAuthorized = 0 and isDeclined=0 and slot_date > ? order by slot_date ",
+              [req.body.Email,date],(err,result)=>{
+               if (err) {
+                    console.log(err);
+                    res.send({ message: "notok" });
+                 } 
+              else if(result.length>0){
+              console.log(result);
+              let slotid,date,time;
+              slotid = result[0]['slot_id'];
+              date = new Date(result[0]['slot_date']).toISOString().split('T')[0];
+              time = result[0]['slot_time'];                       
+              res.send({ message: "hasslot", slot_id:slotid,sdate:date,stime:time });
+               }
+                 else{
+                 res.send({ message: "ok" });
+                 }
+               });
+                            //res.send({ message: "ok" });
+
             }
           }
         );

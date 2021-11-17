@@ -35,7 +35,9 @@ export class AdminManageList extends Component {
       }
     
 
-
+      logout = e=>{
+          alert("logged out successfully");
+      }
 
 
     render() {
@@ -59,8 +61,10 @@ export class AdminManageList extends Component {
                 <Button 
                 type="submit">Manage Stock</Button>
                 </a>
+                <a href = "/">
                 <Button 
-                type="submit">Log Out</Button>
+                type="submit" onclick={this.logout}>Log Out</Button>
+                </a>
             </div>
         )
     }

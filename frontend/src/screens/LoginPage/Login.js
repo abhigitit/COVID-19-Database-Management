@@ -12,9 +12,9 @@ export default class Login extends Component {
       fields: {},
       errors: {},
       message: "",
-      // slot:"",
-      // date:"",
-      // time:""
+      slot:"",
+      date:"",
+      time:""
     };
   }
   onChange = (e) => {
@@ -35,9 +35,9 @@ export default class Login extends Component {
       if (response.data) {
         this.setState({
           message: response.data.message, 
-          // slot:response.data.slot_id,
-          // date:response.data.sdate,
-          // time:response.data.stime
+          slot:response.data.slot_id,
+          date:response.data.sdate,
+          time:response.data.stime
 
         });
       }
@@ -53,6 +53,7 @@ export default class Login extends Component {
     let redirectVar = null;
 
     if (this.state.message === "ok") {
+      localStorage.removeItem("login_status");
       localStorage.setItem(
         "login_status",
         JSON.stringify({
@@ -68,48 +69,23 @@ export default class Login extends Component {
     }
     else if(this.state.message === "hasslot"){
       alert("has slot");
+      redirectVar = (
+        <Redirect
+        to={{
+          pathname: "/slotBookingSuccess",
+          state: {
+            slotId: this.state.slot,
+            slotDate: this.state.date,
+            slotTime: this.state.time
+          },
+        }}
+      />
+      );
     }
     else if(this.state.message==="fullyVaccinated"){
       alert("fully Vaccinated");
       redirectVar = <Redirect to="/" />;
     }
-      // redirectVar = (
-      //   <Redirect
-      //   to={{
-      //     pathname: "/slotBookingSuccess",
-      //     state: {
-      //       slotId: this.state.slot,
-      //       slotDate: this.state.date,
-      //       slotTime: this.state.time
-      //     },
-      //   }}
-      // />
-      // );
-
-
-
-      // localStorage.setItem(
-      //   "p_id",
-      //   JSON.stringify({
-      //     status: "true",
-      //     emailId: this.state.Email,
-      //   })
-      // );
-      // alert(this.state.date);
-      // alert(this.state.slot);
-
-      // alert(typeof(this.state.time));
-      // redirectVar = null;
-      // <Redirect
-      //     to={{
-      //       pathname: "/slotBookingSuccess",
-      //       state: {
-      //         slotId: this.state.slot,
-      //         slotDate: this.state.date,
-      //         slotTime: this.state.time
-      //       },
-      //     }}
-      //   />
 
     
     return (

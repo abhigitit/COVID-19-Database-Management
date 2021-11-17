@@ -25,6 +25,9 @@ export default class SlotSuccess extends Component {
       });
     }
   }
+  handleOnLogout = e =>{
+    localStorage.removeItem("slot-id");
+  }
   clear = (e)=>{
     let sid = localStorage.getItem("slot-id"); 
      let data = {
@@ -76,7 +79,8 @@ export default class SlotSuccess extends Component {
                   </a>
                 <a href="/">
                   <Button size="lg" 
-                  className="landingButton1">
+                  className="landingButton1"
+                  onClick = {this.handleOnLogout}>
                     Logout
                   </Button>
                   </a>
