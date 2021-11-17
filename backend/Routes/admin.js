@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const pool = require("../pool.js");
+const uuid = require('uuid');
+
 
 router.post("/login", (req, res) => {
   const enteredPassword = req.body.Password;
@@ -113,15 +115,69 @@ router.post("/decline", (req, res) => {
 
 router.post("/authorize", (req, res) => {
   selectedSlotId = req.body.SlotId;
+  email = req.body.PId;
   pool.query("UPDATE slot SET isAuthorized = 1 Where slot_id = ?",
      [selectedSlotId],
      (err, result) => {
        if (err) {
          console.log(err);
-         res.send({ message: "notok" });
+         res.send({ message: "otok" });
        } else {
-         console.log("Registered succesfully" + JSON.stringify(result));
-         res.send({ message: "ok" });
+         console.log("Authorized succesfully" + JSON.stringify(result));
+         pool.query("select * from slot, vaccine where slot.v_name = vaccine.v_name and isAuthorized = 1 and p_id = ?",[email],
+         (err,result)=>{
+           if(err){
+             console.log(err);
+           }
+           else{
+            let date,time,vaccine,vaccinationCenter,email;
+            var d = new Date();
+            console.log(d);
+            dt = new Date(d.setMonth(d.getMonth() + 1));
+            console.log(dt);
+            date = dt.toISOString().split('T')[0];
+            time = result[0]['slot_time'];
+            vaccine = result[0]['v_name'];
+            vaccinationCenter = result[0]['vc_name'];
+            email = result[0]['p_id'];
+            vaccinator = result[0]['e_id'];
+            if(result.length<result[0]['no_of_doses']){
+              let id = uuid.v1();
+              pool.query(
+                "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,?,?);",
+                [
+                  vaccinationCenter,
+                  vaccine,
+                  date,
+                  time,
+                  id,
+                  vaccinator,
+                  email
+                ],
+                (err, result) => {
+                  if (err) {
+                    console.log(err);
+                    res.send({ message: "notok" });
+                  } else {
+                    res.send({message:"ok"});
+
+                   }})
+            }
+            else{
+              pool.query("UPDATE person SET is_vaccinated = 1 Where p_id = ?",[email],(err,result)=>{
+              if(err){
+                console.log(err);
+                res.send({message:"notok"});
+
+              }
+              else{
+                res.send({message:"ok"});
+              }
+              });
+            }
+           }
+
+         });
        }
      })
     });

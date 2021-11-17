@@ -24,6 +24,7 @@ export class AdminManageListItem extends Component {
         e.preventDefault();
         let data = {
           SlotId: this.props.data.slot_id,
+          PId:this.props.data.p_id
         };
         Axios.post("http://localhost:5000/admin/decline", data).then((response) => {
           alert(response);
@@ -43,6 +44,8 @@ export class AdminManageListItem extends Component {
         e.preventDefault();
         let data = {
           SlotId: this.props.data.slot_id,
+          PId:this.props.data.p_id
+
         };
         Axios.post("http://localhost:5000/admin/authorize", data).then((response) => {
           alert(response.data.message);

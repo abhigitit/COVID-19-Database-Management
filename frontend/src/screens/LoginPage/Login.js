@@ -68,6 +68,11 @@ export default class Login extends Component {
     }
     else if(this.state.message === "hasslot"){
       alert("has slot");
+    }
+    else if(this.state.message==="fullyVaccinated"){
+      alert("fully Vaccinated");
+      redirectVar = <Redirect to="/" />;
+    }
       // redirectVar = (
       //   <Redirect
       //   to={{
@@ -106,7 +111,7 @@ export default class Login extends Component {
       //     }}
       //   />
 
-    }
+    
     return (
       <div className="Login">
         {redirectVar}
