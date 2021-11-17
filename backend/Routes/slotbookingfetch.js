@@ -124,7 +124,8 @@ router.post("/updateStockOnBooking", (req, res) => {
 });
 
 router.get("/slot", (req, res) => {
-  pool.query("SELECT * from slot", (err, result) => {
+  
+  pool.query("SELECT * from slot where isDeclined=0 and isAuthorized = 0", (err, result) => {
     if (err) {
       res.send({ message: "notok" });
     } else {

@@ -23,7 +23,7 @@ export class AdminManageListItem extends Component {
     this.setState({disabled: true});
         e.preventDefault();
         let data = {
-          SlotId: this.props.slot_id,
+          SlotId: this.props.data.slot_id,
         };
         Axios.post("http://localhost:5000/admin/decline", data).then((response) => {
           alert(response);
@@ -42,7 +42,7 @@ export class AdminManageListItem extends Component {
     this.setState({disabled: true});
         e.preventDefault();
         let data = {
-          SlotId: this.props.slot_id,
+          SlotId: this.props.data.slot_id,
         };
         Axios.post("http://localhost:5000/admin/authorize", data).then((response) => {
           alert(response.data.message);
@@ -61,17 +61,12 @@ export class AdminManageListItem extends Component {
                 <div className="row">
                     <div className="col-md-2">{this.props.data.p_id}</div>
                     <div className="col-md-2 ">{this.props.data.v_name}</div>
-
                     <div className="col-md-6">
                         <button className="btn btn-danger mr-4"  disabled={this.state.disabled} onClick={this.onDecline}> Decline</button>
                         <button className="btn btn-primary" disabled={this.state.disabled} onClick={this.onApprove}> Approve</button>
                     </div>       
-                    {/* <div className="col-md-3"> */}
-                    {/* </div> */}
                 </div>
             </li>
-            {/* <Button 
-                type="submit">Register</Button> */}
             </div>
             
             
