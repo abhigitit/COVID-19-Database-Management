@@ -35,6 +35,10 @@ export default class Login extends Component {
       }
     });
   };
+  
+  fgtpwd() {
+    alert('Password reset mail has been sent!');
+  }
 
   render() {
     console.log(this.props);
@@ -91,10 +95,10 @@ export default class Login extends Component {
                   Log In
                 </button>
               </div>
-              <div className="forgot-password">
-                <p>
-                  Forgot <a href="/">password?</a>
-                </p>
+              <div className="buttonContainer1">
+                <button className="fgtpwd" onClick={this.fgtpwd}>
+                Forgot password?
+                </button>
               </div>
             </form>
           </div>

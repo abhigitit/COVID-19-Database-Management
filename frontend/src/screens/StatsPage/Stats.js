@@ -1,14 +1,39 @@
-import React from 'react'
-import './Stats.css'
+import React, { Component } from "react";
+import "./Stats.css";
+
+import Axios from "axios";
+import Table from "../Table/Table";
+
+export default class stats extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      stats: [],
+    };
+  }
+  componentDidMount(props) {
+    Axios.get("http://localhost:5000/stats").then((response) => {
+      console.log(response);
+      this.setState({
+        stats: response.data,
+      });
+
+    });
+  }
 
 
-const Stats = () => {
+
+  render() {
+        
+        
     return (
-        <div className="Stats">
-        <h1>Here are the vaccination stats of Santa Clara County</h1>
-       </div>
-    )
+      <div className="App">
+        <Table data={this.state.stats}/>
+      </div>
+      
+    );
 }
 
-export default Stats
 
+}

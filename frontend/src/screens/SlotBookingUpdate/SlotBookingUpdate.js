@@ -191,7 +191,7 @@ export default class SlotBooking extends Component {
                   onClick={this.handleOnSubmit}
                 >
                   {" "}
-                  Book Slot{" "}
+                  Update Slot{" "}
                 </Button>
               </a>
               <a href="/">

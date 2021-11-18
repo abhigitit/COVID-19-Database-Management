@@ -70,7 +70,7 @@ export default class SlotSuccess extends Component {
                   </Button>
                 </a>
               <a href="/slot">
-]                  <Button
+                  <Button
                     size="lg"
                     onClick = {this.clear}
                     className="landingButton1">
