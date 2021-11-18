@@ -28,8 +28,10 @@ export default class stats extends Component {
         
         
     return (
+      <div className="Stats">
       <div className="Table">
         <Table data={this.state.stats}/>
+      </div>
       </div>
       
     );
