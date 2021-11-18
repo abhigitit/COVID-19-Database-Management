@@ -2,11 +2,19 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../pool.js");
 const bcrypt = require("bcrypt");
+const logger  = require("../Utils/serverLogger");
 
 router.post("/", (req, res) => {
+  logger.info("POST /register");
+  logger.info("request: "+ JSON.stringify(req.body));
   const myPlaintextPassword = req.body.Password;
   const hash = bcrypt.hashSync(myPlaintextPassword, 5);
-  
+  if(hash){
+    logger.info("Password hashed : "+ hash);
+  }
+  else{
+    logger.error("Password not hashed")
+  }
   pool.query(
     "INSERT INTO person (p_firstname,p_lastname,p_id,p_address,dob,password) VALUES (?,?,?,?,?,?)",
     [
@@ -19,7 +27,7 @@ router.post("/", (req, res) => {
     ],
     (err, result) => {
       if (err) {
-        console.log(err);
+        logger.error(err);
         res.send({ message: "notok" });
       } else {
         if(req.body.HomePhone){
@@ -31,7 +39,7 @@ router.post("/", (req, res) => {
             ],
             (err) => {
               if (err) {
-                console.log(err);
+                logger.error(err);
                 res.send({ message: "notok" });
               } 
             }
@@ -47,7 +55,7 @@ router.post("/", (req, res) => {
             ],
             (err) => {
               if (err) {
-                console.log(err);
+                logger.error(err);
                 res.send({ message: "notok" });
               } 
             }
@@ -64,14 +72,14 @@ router.post("/", (req, res) => {
             ],
             (err) => {
               if (err) {
-                console.log(err);
+                logger.error(err);
                 res.send({ message: "notok" });
               } 
             }
           );
       
         }      
-        console.log("Registered succesfully" + JSON.stringify(result));
+        logger.info("Registered succesfully" + JSON.stringify(result));
         res.send({ message: "ok" });
       }
     }

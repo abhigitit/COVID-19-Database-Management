@@ -1,0 +1,186 @@
+
+info: Nov-17-2021 18:37:43: 	Server started on port 5000
+info: Nov-17-2021 18:38:18: 	POST /register
+info: Nov-17-2021 18:38:18: 	request: [object Object]
+info: Nov-17-2021 18:38:18: 	Password hashed
+info: Nov-17-2021 18:38:18: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 18:39:02: 	Server started on port 5000
+info: Nov-17-2021 18:39:29: 	Server started on port 5000
+info: Nov-17-2021 18:40:19: 	POST /register
+info: Nov-17-2021 18:40:19: 	request: [object Object]
+info: Nov-17-2021 18:40:19: 	Password hashed
+info: Nov-17-2021 18:40:19: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 18:42:09: 	Server started on port 5000
+info: Nov-17-2021 18:42:57: 	POST /register
+info: Nov-17-2021 18:42:57: 	request: {"FirstName":"987","LastName":"098","Email":"12345@gmail.com","Password":"123456","DOB":"2021-11-04","address":"8769","HomePhone":"98919","Mobile":"98484","ECName":"sandy","ECPhone":"4321"}
+info: Nov-17-2021 18:42:57: 	Password hashed
+info: Nov-17-2021 18:42:57: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 18:43:56: 	Server started on port 5000
+info: Nov-17-2021 18:45:10: 	Server started on port 5000
+info: Nov-17-2021 18:50:14: 	Server started on port 5000
+info: Nov-17-2021 18:51:35: 	Server started on port 5000
+info: Nov-17-2021 18:56:05: 	Server started on port 5000
+info: Nov-17-2021 19:00:48: 	Server started on port 5000
+info: Nov-17-2021 19:06:48: 	Server started on port 5000
+info: Nov-17-2021 19:10:47: 	Server started on port 5000
+info: Nov-17-2021 19:18:50: 	Server started on port 5000
+info: Nov-17-2021 19:21:54: 	POST /register
+info: Nov-17-2021 19:21:54: 	request: {"FirstName":"robin","LastName":"john","Email":"robin@gmail.com","Password":"1234","DOB":"1994-02-15","address":"190 Ryland Street","HomePhone":"987654321","Mobile":"6695672345","ECName":"Mary","ECPhone":"897654123"}
+info: Nov-17-2021 19:21:54: 	Password hashed : $2b$05$hr8Eiq14PzzUTdgv.dCEkubmxStWJaIWaakM6eluPn6y/oyeU9UJ6
+info: Nov-17-2021 19:21:54: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 19:22:19: 	{"Email":"robin@gmail.com","Password":"1234"}
+info: Nov-17-2021 19:22:19: 	login succeeded
+info: Nov-17-2021 19:22:19: 	User can book a slot and redirected to slot booking page
+info: Nov-17-2021 19:22:22: 	at /vaccine route
+info: Nov-17-2021 19:22:22: 	at /vaccinationcenter route
+info: Nov-17-2021 19:22:22: 	at /sponsor route
+info: Nov-17-2021 19:22:22: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 19:22:22: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 19:22:22: 	[{"s_name":"Starbucks"},{"s_name":"Target"}]
+info: Nov-17-2021 19:22:51: 	at /slotbook route
+info: Nov-17-2021 19:22:51: 	{"fieldCount":0,"affectedRows":11,"insertId":0,"serverStatus":34,"warningCount":0,"message":"*Rows matched: 11  Changed: 11  Warnings: 0","protocol41":true,"changedRows":11}
+info: Nov-17-2021 19:22:51: 	at /updateStockOnBooking route
+info: Nov-17-2021 19:22:51: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 19:23:32: 	{"Email":"robin@gmail.com","Password":"1234"}
+info: Nov-17-2021 19:23:32: 	login succeeded
+info: Nov-17-2021 19:23:32: 	Users active slots: [{"slot_id":"cffc25f0-481e-11ec-ad73-dbef1479b027","slot_date":"2021-11-19T08:00:00.000Z","slot_time":"16:20:00","isAuthorized":0,"isDeclined":0,"e_id":"VC101@gmail.com","vc_name":"San Jose","v_name":"J&J","p_id":"robin@gmail.com"}]
+info: Nov-17-2021 19:23:32: 	user already has slot
+info: Nov-17-2021 19:23:36: 	at /vaccine route
+info: Nov-17-2021 19:23:36: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 19:23:36: 	at /vaccinationcenter route
+info: Nov-17-2021 19:23:36: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 19:24:04: 	at /slotUpdate route
+info: Nov-17-2021 19:24:04: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 19:24:04: 	at /updateStockOnBooking route
+info: Nov-17-2021 19:24:04: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 19:25:03: 	 at /admin/login route
+info: Nov-17-2021 19:25:03: 	Query output: [{"e_id":"VC101@gmail.com","e_name":"Kim","e_password":"$2b$05$ExOw6a3puyhnRmZ0h89i9eYz6oQeD91Hfk50PXi5wUWoLF5mVO1pq","vc_name":"Santa Clara"}]
+info: Nov-17-2021 19:25:03: 	login succeed
+info: Nov-17-2021 19:25:05: 	at /slot route
+info: Nov-17-2021 19:25:05: 	[{"slot_id":"930c4550-47f4-11ec-8d89-25e1ed4383f7","slot_date":"2021-11-18T08:00:00.000Z","slot_time":"00:00:00","isAuthorized":0,"isDeclined":0,"e_id":"VC101@gmail.com","vc_name":"Sunnyvale","v_name":"J&J","p_id":"steve@gmail.com"},{"slot_id":"cffc25f0-481e-11ec-ad73-dbef1479b027","slot_date":"2021-11-22T08:00:00.000Z","slot_time":"09:30:00","isAuthorized":0,"isDeclined":0,"e_id":"VC101@gmail.com","vc_name":"San Jose","v_name":"J&J","p_id":"robin@gmail.com"}]
+info: Nov-17-2021 19:25:09: 	at admin/authorize route
+info: Nov-17-2021 19:25:09: 	slot id : cffc25f0-481e-11ec-ad73-dbef1479b027
+info: Nov-17-2021 19:25:09: 	Authorized succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 19:25:09: 	is completely vaccinated flag enabled in person table
+info: Nov-17-2021 19:25:13: 	at /vaccine route
+info: Nov-17-2021 19:25:13: 	at /vaccinationcenter route
+info: Nov-17-2021 19:25:13: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 19:25:13: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 19:25:25: 	 at /admin/manageStock route
+info: Nov-17-2021 19:25:25: 	Vaccina Stock updated succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 19:26:04: 	{"Email":"robin@gmail.com","Password":"1234"}
+info: Nov-17-2021 19:26:04: 	User:robin@gmail.com is fully vaccinated
+info: Nov-17-2021 19:33:56: 	Server started on port 5000
+info: Nov-17-2021 19:56:04: 	Server started on port 5000
+info: Nov-17-2021 19:59:26: 	POST /register
+info: Nov-17-2021 19:59:26: 	request: {"FirstName":"James","LastName":"Mathew","Email":"james@gmail.com","Password":"1234","DOB":"1982-01-10","address":"789 Ryland park","HomePhone":"213459876","Mobile":"987654312","ECName":"christine","ECPhone":"678905432"}
+info: Nov-17-2021 19:59:26: 	Password hashed : $2b$05$1h.e5cGOMqu0m0oDYuEf4e/GjCv1OvGrlrOdb.oQcC3nZwqfz0lky
+info: Nov-17-2021 19:59:26: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 19:59:47: 	{"Email":"james@gmail.com","Password":"1234"}
+info: Nov-17-2021 19:59:47: 	login succeeded
+info: Nov-17-2021 19:59:47: 	User can book a slot and redirected to slot booking page
+info: Nov-17-2021 19:59:51: 	at /vaccine route
+info: Nov-17-2021 19:59:51: 	at /vaccinationcenter route
+info: Nov-17-2021 19:59:51: 	at /sponsor route
+info: Nov-17-2021 19:59:51: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 19:59:51: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 19:59:51: 	[{"s_name":"Starbucks"},{"s_name":"Target"}]
+info: Nov-17-2021 20:00:19: 	at /slotbook route
+info: Nov-17-2021 20:00:19: 	{"fieldCount":0,"affectedRows":12,"insertId":0,"serverStatus":34,"warningCount":0,"message":")Rows matched: 12  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:00:19: 	at /updateStockOnBooking route
+info: Nov-17-2021 20:00:19: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:00:40: 	 at /admin/login route
+info: Nov-17-2021 20:00:40: 	Query output: [{"e_id":"VC101@gmail.com","e_name":"Kim","e_password":"$2b$05$ExOw6a3puyhnRmZ0h89i9eYz6oQeD91Hfk50PXi5wUWoLF5mVO1pq","vc_name":"Santa Clara"}]
+info: Nov-17-2021 20:00:40: 	login succeed
+info: Nov-17-2021 20:00:42: 	at /slot route
+info: Nov-17-2021 20:00:42: 	[{"slot_id":"0baa85b0-4824-11ec-b351-bd345060e018","slot_date":"2021-11-25T08:00:00.000Z","slot_time":"10:00:00","isAuthorized":0,"isDeclined":0,"e_id":"steve.rogers@gmail.com","vc_name":"San Jose","v_name":"J&J","p_id":"james@gmail.com"},{"slot_id":"930c4550-47f4-11ec-8d89-25e1ed4383f7","slot_date":"2021-11-18T08:00:00.000Z","slot_time":"00:00:00","isAuthorized":0,"isDeclined":0,"e_id":"VC101@gmail.com","vc_name":"Sunnyvale","v_name":"J&J","p_id":"steve@gmail.com"}]
+info: Nov-17-2021 20:00:45: 	at admin/authorize route
+info: Nov-17-2021 20:00:45: 	slot id : 0baa85b0-4824-11ec-b351-bd345060e018
+info: Nov-17-2021 20:00:45: 	Authorized succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:00:45: 	is completely vaccinated flag enabled in person table
+info: Nov-17-2021 20:02:53: 	POST /register
+info: Nov-17-2021 20:02:53: 	request: {"FirstName":"Jack","LastName":"Titan","Email":"Jack@gmail.com","Password":"1234","DOB":"1969-06-02","address":"369 Washington ","HomePhone":"234156987","Mobile":"987612345","ECName":"Rose","ECPhone":"4593585436"}
+info: Nov-17-2021 20:02:53: 	Password hashed : $2b$05$clxWg8Eziy4sXdYHdmrKxuBhuiBCpvDqE1HJQAAItYER3VN4O3c2y
+info: Nov-17-2021 20:02:53: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 20:05:14: 	{"Email":"jack@gmail.com","Password":"1234"}
+info: Nov-17-2021 20:05:14: 	login succeeded
+info: Nov-17-2021 20:05:14: 	User can book a slot and redirected to slot booking page
+info: Nov-17-2021 20:05:15: 	at /vaccine route
+info: Nov-17-2021 20:05:15: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 20:05:15: 	at /vaccinationcenter route
+info: Nov-17-2021 20:05:15: 	at /sponsor route
+info: Nov-17-2021 20:05:15: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 20:05:15: 	[{"s_name":"Starbucks"},{"s_name":"Target"}]
+info: Nov-17-2021 20:05:36: 	at /slotbook route
+info: Nov-17-2021 20:05:36: 	{"fieldCount":0,"affectedRows":13,"insertId":0,"serverStatus":34,"warningCount":0,"message":"*Rows matched: 13  Changed: 13  Warnings: 0","protocol41":true,"changedRows":13}
+info: Nov-17-2021 20:05:36: 	at /updateStockOnBooking route
+info: Nov-17-2021 20:05:36: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:05:59: 	{"Email":"jack@gmail.com","Password":"1234"}
+info: Nov-17-2021 20:05:59: 	login succeeded
+info: Nov-17-2021 20:05:59: 	Users active slots: [{"slot_id":"c8d7a140-4824-11ec-b351-bd345060e018","slot_date":"2021-11-27T08:00:00.000Z","slot_time":"12:05:00","isAuthorized":0,"isDeclined":0,"e_id":"steve.rogers@gmail.com","vc_name":"San Jose","v_name":"Pfizer","p_id":"jack@gmail.com"}]
+info: Nov-17-2021 20:05:59: 	user already has slot
+info: Nov-17-2021 20:06:05: 	at /vaccine route
+info: Nov-17-2021 20:06:05: 	at /vaccinationcenter route
+info: Nov-17-2021 20:06:05: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 20:06:05: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 20:06:25: 	at /slotUpdate route
+info: Nov-17-2021 20:06:25: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:06:25: 	at /updateStockOnBooking route
+info: Nov-17-2021 20:06:25: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:06:38: 	 at /admin/login route
+info: Nov-17-2021 20:06:38: 	Query output: [{"e_id":"VC101@gmail.com","e_name":"Kim","e_password":"$2b$05$ExOw6a3puyhnRmZ0h89i9eYz6oQeD91Hfk50PXi5wUWoLF5mVO1pq","vc_name":"Santa Clara"}]
+info: Nov-17-2021 20:06:38: 	login succeed
+info: Nov-17-2021 20:06:40: 	at /slot route
+info: Nov-17-2021 20:06:40: 	[{"slot_id":"930c4550-47f4-11ec-8d89-25e1ed4383f7","slot_date":"2021-11-18T08:00:00.000Z","slot_time":"00:00:00","isAuthorized":0,"isDeclined":0,"e_id":"VC101@gmail.com","vc_name":"Sunnyvale","v_name":"J&J","p_id":"steve@gmail.com"},{"slot_id":"c8d7a140-4824-11ec-b351-bd345060e018","slot_date":"2021-11-30T08:00:00.000Z","slot_time":"08:09:00","isAuthorized":0,"isDeclined":0,"e_id":"steve.rogers@gmail.com","vc_name":"San Jose","v_name":"Pfizer","p_id":"jack@gmail.com"}]
+info: Nov-17-2021 20:06:42: 	at admin/authorize route
+info: Nov-17-2021 20:06:42: 	slot id : c8d7a140-4824-11ec-b351-bd345060e018
+info: Nov-17-2021 20:06:42: 	Authorized succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:06:42: 	second slot booked successfully: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 20:06:53: 	at admin/authorize route
+info: Nov-17-2021 20:06:53: 	slot id : 930c4550-47f4-11ec-8d89-25e1ed4383f7
+info: Nov-17-2021 20:06:53: 	Authorized succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:06:53: 	is completely vaccinated flag enabled in person table
+info: Nov-17-2021 20:07:08: 	{"Email":"jack@gmail.com","Password":"1234"}
+info: Nov-17-2021 20:07:08: 	login succeeded
+info: Nov-17-2021 20:07:08: 	Users active slots: [{"slot_id":"f0193890-4824-11ec-b351-bd345060e018","slot_date":"2021-12-18T08:00:00.000Z","slot_time":"08:09:00","isAuthorized":0,"isDeclined":0,"e_id":"steve.rogers@gmail.com","vc_name":"San Jose","v_name":"Pfizer","p_id":"jack@gmail.com"}]
+info: Nov-17-2021 20:07:08: 	user already has slot
+info: Nov-17-2021 20:07:14: 	at /vaccine route
+info: Nov-17-2021 20:07:14: 	at /vaccinationcenter route
+info: Nov-17-2021 20:07:14: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 20:07:14: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 20:07:44: 	at /slotUpdate route
+info: Nov-17-2021 20:07:44: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:07:44: 	at /updateStockOnBooking route
+info: Nov-17-2021 20:07:44: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:09:05: 	POST /register
+info: Nov-17-2021 20:09:05: 	request: {"FirstName":"Anne","LastName":"Mary","Email":"anne@gmail.com","Password":"1234","DOB":"1977-07-07","address":"23 Parkway St, SJ","HomePhone":"7867998","Mobile":"1245689","ECName":"Jim Ray","ECPhone":"1258879"}
+info: Nov-17-2021 20:09:05: 	Password hashed : $2b$05$5thQhYwOpz8TFdFqlaCqj.oX0eKXHqlf/GWC3zls/XS3AGPZqs/ju
+info: Nov-17-2021 20:09:05: 	Registered succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 20:09:21: 	{"Email":"anne@gmail.com","Password":"1234"}
+info: Nov-17-2021 20:09:21: 	login succeeded
+info: Nov-17-2021 20:09:21: 	User can book a slot and redirected to slot booking page
+info: Nov-17-2021 20:09:23: 	at /vaccine route
+info: Nov-17-2021 20:09:23: 	at /vaccinationcenter route
+info: Nov-17-2021 20:09:23: 	[{"v_name":"J&J"},{"v_name":"Moderna"},{"v_name":"Pfizer"}]
+info: Nov-17-2021 20:09:23: 	at /sponsor route
+info: Nov-17-2021 20:09:23: 	[{"vc_name":"San Jose"},{"vc_name":"Santa Clara"},{"vc_name":"Sunnyvale"}]
+info: Nov-17-2021 20:09:23: 	[{"s_name":"Starbucks"},{"s_name":"Target"}]
+info: Nov-17-2021 20:09:44: 	at /slotbook route
+info: Nov-17-2021 20:09:44: 	{"fieldCount":0,"affectedRows":14,"insertId":0,"serverStatus":34,"warningCount":0,"message":")Rows matched: 14  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:09:44: 	at /updateStockOnBooking route
+info: Nov-17-2021 20:09:44: 	{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:09:57: 	 at /admin/login route
+info: Nov-17-2021 20:09:57: 	Query output: [{"e_id":"VC101@gmail.com","e_name":"Kim","e_password":"$2b$05$ExOw6a3puyhnRmZ0h89i9eYz6oQeD91Hfk50PXi5wUWoLF5mVO1pq","vc_name":"Santa Clara"}]
+info: Nov-17-2021 20:09:57: 	login succeed
+info: Nov-17-2021 20:09:59: 	at /slot route
+info: Nov-17-2021 20:09:59: 	[{"slot_id":"5c4cf560-4825-11ec-b351-bd345060e018","slot_date":"2021-12-11T08:00:00.000Z","slot_time":"13:09:00","isAuthorized":0,"isDeclined":0,"e_id":"steve.rogers@gmail.com","vc_name":"San Jose","v_name":"Moderna","p_id":"anne@gmail.com"},{"slot_id":"f0193890-4824-11ec-b351-bd345060e018","slot_date":"2021-12-11T08:00:00.000Z","slot_time":"09:08:00","isAuthorized":0,"isDeclined":0,"e_id":"steve.rogers@gmail.com","vc_name":"San Jose","v_name":"Pfizer","p_id":"jack@gmail.com"}]
+info: Nov-17-2021 20:10:05: 	at admin/authorize route
+info: Nov-17-2021 20:10:05: 	slot id : 5c4cf560-4825-11ec-b351-bd345060e018
+info: Nov-17-2021 20:10:05: 	Authorized succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:10:05: 	second slot booked successfully: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Nov-17-2021 20:10:08: 	at admin/authorize route
+info: Nov-17-2021 20:10:08: 	slot id : f0193890-4824-11ec-b351-bd345060e018
+info: Nov-17-2021 20:10:08: 	Authorized succesfully{"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+info: Nov-17-2021 20:10:08: 	is completely vaccinated flag enabled in person table
+info: Nov-17-2021 20:10:25: 	{"Email":"jack@gmail.com","Password":"1234"}
+info: Nov-17-2021 20:10:25: 	User:jack@gmail.com is fully vaccinated
