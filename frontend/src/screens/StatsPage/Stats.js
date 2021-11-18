@@ -28,7 +28,7 @@ export default class stats extends Component {
         
         
     return (
-      <div className="App">
+      <div className="Table">
         <Table data={this.state.stats}/>
       </div>
       
