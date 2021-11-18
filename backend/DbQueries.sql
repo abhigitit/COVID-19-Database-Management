@@ -137,25 +137,6 @@ INSERT INTO Manufacturer VALUES ("Moderna");
 INSERT INTO Manufacturer VALUES ("Janssen");
 
 
-INSERT INTO Person VALUES ("john.doe@gmail.com", "johndoe", "John", "Doe", "1997-10-24", "1 street, CA", 0, "Starbucks");
-INSERT INTO Person VALUES ("amy.jones@gmail.com", "amyjones", "Amy", "Jones", "1976-11-25", "2 street, CA", 0, "Target");
-INSERT INTO Person VALUES ("sai.krishna@gmail.com", "saikrishna", "Sai", "Krishna", "1986-06-10", "3 street, CA", 0, "Target");
-INSERT INTO Person VALUES ("frank.lin@gmail.com", "franklin", "Frank", "Lin", "1965-02-14", "4 street, CA", 0, "Starbucks");
-
-
-INSERT INTO P_Phones VALUES ("john.doe@gmail.com", "1234567890");
-INSERT INTO P_Phones VALUES ("john.doe@gmail.com", "3216540987");
-INSERT INTO P_Phones VALUES ("sai.krishna@gmail.com", "7654321098");
-INSERT INTO P_Phones VALUES ("frank.lin@gmail.com", "0987654321");
-INSERT INTO P_Phones VALUES ("amy.jones@gmail.com", "0987612345");
-INSERT INTO P_Phones VALUES ("amy.jones@gmail.com", "5432109876");
-
-
-INSERT INTO EmergencyContact VALUES ("john.doe@gmail.com", "frank.lin@gmail.com", "Frank Lin");
-INSERT INTO EmergencyContact VALUES ("sai.krishna@gmail.com", "amy.jones@gmail.com", "Amy Jones");
-INSERT INTO EmergencyContact VALUES ("frank.lin@gmail.com", "john.doe@gmail.com", "John Doe");
-INSERT INTO EmergencyContact VALUES ("amy.jones@gmail.com", "sai.krishna@gmail.com", "Sai Krishna");
-
 
 INSERT INTO Vaccine VALUES ("Pfizer", 2, 28, "Pfizer-BioNTech");
 INSERT INTO Vaccine VALUES ("Moderna", 2, 28, "Moderna");
@@ -182,10 +163,5 @@ INSERT INTO Supplies VALUES ("Santa Clara", "Moderna", 150);
 INSERT INTO Supplies VALUES ("Santa Clara", "Janssen", 80);
 INSERT INTO Supplies VALUES ("Sunnyvale", "Janssen", 120);
 
-INSERT INTO Vaccinator VALUES ("tony.stark@gmail.com", "Tony Stark", "ironman", "San Jose");
-INSERT INTO Vaccinator VALUES ("steve.rogers@gmail.com", "Steve Rogers", "captainamerica", "San Jose");
-INSERT INTO Vaccinator VALUES ("thor.odinson@gmail.com", "Thor Odinson", "godofthunder", "Santa Clara");
-INSERT INTO Vaccinator VALUES ("loki.odinson@gmail.com", "Loki Odinson", "daddyissues", "Santa Clara");
-INSERT INTO Vaccinator VALUES ("ryan.reynolds@gmail.com", "Ryan Reynolds", "deadpool", "Sunnyvale");
 
 

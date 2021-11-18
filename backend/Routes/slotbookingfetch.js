@@ -2,7 +2,7 @@ const express = require("express");
 const con = require("../pool.js");
 const router = express.Router();
 const pool = require("../pool.js");
-const uuid = require('uuid');
+const uuid = require("uuid");
 
 router.get("/vaccine", (req, res) => {
   pool.query(
@@ -19,38 +19,36 @@ router.get("/vaccine", (req, res) => {
 });
 
 router.get("/sponsor", (req, res) => {
-  pool.query(
-    "SELECT s_name from sponsor",
-    (err, result) => {
-      if (err) {
-        res.send({ message: "notok" });
-      } else {
-        res.send(result);
-      }
+  pool.query("SELECT s_name from sponsor", (err, result) => {
+    if (err) {
+      res.send({ message: "notok" });
+    } else {
+      res.send(result);
     }
-  );
+  });
 });
 
 router.post("/slotUpdate", (req, res) => {
   console.log(req.body.Slotid);
-   pool.query("Update slot Set vc_name = ?,v_name = ?, slot_date=?, slot_time = ? where slot_id = ? ",
+  pool.query(
+    "Update slot Set vc_name = ?,v_name = ?, slot_date=?, slot_time = ? where slot_id = ? ",
     [
       req.body.VC_name,
       req.body.V_name,
       req.body.FDate,
       req.body.Ftime,
-      req.body.Slotid
+      req.body.Slotid,
     ],
     (err, result) => {
       if (err) {
         console.log(err);
         res.send({ message: "notok" });
       } else {
-        res.send({ id : req.body.Slotid });
+        res.send({ id: req.body.Slotid });
       }
     }
   );
-  });
+});
 
 router.post("/vaccine", (req, res) => {
   pool.query(
@@ -77,36 +75,51 @@ router.get("/vaccinationcenter", (req, res) => {
 });
 
 router.post("/slotbook", (req, res) => {
-
+  let vaccinator;
   let id = uuid.v1();
   pool.query(
-    "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,'VC101@gmail.com',?);",
-    [
-      req.body.VC_name,
-      req.body.V_name,
-      req.body.FDate,
-      req.body.Ftime,
-      id,
-      req.body.Email,
-    ],
+    "Select e_id from Vaccinator where vc_name = ?;",
+    [req.body.VC_name],
     (err, result) => {
       if (err) {
         console.log(err);
-        res.send({ message: "notok" });
       } else {
+        console.log(result[0]["e_id"]);
         pool.query(
-          "UPDATE person set sponsor_name = ?",
-          [req.body.sponsorName,],(err, result) => {
+          "INSERT INTO slot (vc_name,v_name,slot_date,slot_time,slot_id,e_id,p_id) VALUES (?,?,?,?,?,?,?);",
+          [
+            req.body.VC_name,
+            req.body.V_name,
+            req.body.FDate,
+            req.body.Ftime,
+            id,
+            result[0]["e_id"],
+            req.body.Email,
+          ],
+          (err, result) => {
             if (err) {
               console.log(err);
               res.send({ message: "notok" });
-            } 
-            else{
-              res.send({ id: id });
-            };
-         })}})
-
-        });
+            } else {
+              pool.query(
+                "UPDATE person set sponsor_name = ?",
+                [req.body.sponsorName],
+                (err, result) => {
+                  if (err) {
+                    console.log(err);
+                    res.send({ message: "notok" });
+                  } else {
+                    res.send({ id: id });
+                  }
+                }
+              );
+            }
+          }
+        );
+      }
+    }
+  );
+});
 
 router.post("/updateStockOnBooking", (req, res) => {
   pool.query(
@@ -124,14 +137,16 @@ router.post("/updateStockOnBooking", (req, res) => {
 });
 
 router.get("/slot", (req, res) => {
-  
-  pool.query("SELECT * from slot where isDeclined=0 and isAuthorized = 0", (err, result) => {
-    if (err) {
-      res.send({ message: "notok" });
-    } else {
-      res.send(result);
+  pool.query(
+    "SELECT * from slot where isDeclined=0 and isAuthorized = 0",
+    (err, result) => {
+      if (err) {
+        res.send({ message: "notok" });
+      } else {
+        res.send(result);
+      }
     }
-  });
+  );
 });
 
 router.post("/getSlotsById", (req, res) => {
