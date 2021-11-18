@@ -6,10 +6,11 @@ const Footer = () => {
     <footer
       style={{
         width: "100%",
-        position: "relative",
+        position: "fixed",
         bottom: 0,
         display: "flex",
         justifyContent: "center",
+        backgroundcolor: "grey",
       }}
     >
       <Container>
