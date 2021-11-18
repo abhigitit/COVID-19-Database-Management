@@ -6,7 +6,7 @@ const pool = require("../pool.js");
 
 router.get("/", (req, res) => {
     pool.query(
-      "Select v_name, count(*) No_of_shots from Slot where isAuthorized = '1' group by v_name ",
+      "Select v_name, CONCAT(CONVERT((count(*) * 100.0 / (select count(*) from Slot where isAuthorized = '1')), NCHAR) , '%') as Percentage_Of_Shots from Slot where isAuthorized = '1' group by v_name;",
     
       (err, result) => {
         if (err) {

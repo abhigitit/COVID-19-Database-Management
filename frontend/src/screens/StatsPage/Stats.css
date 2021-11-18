@@ -7,7 +7,7 @@
   background-image: url("../../statsimg.jpg");
 }
 
-Table{
+.Table{
   background-position: center;
   margin: auto;
   width: 60%;
