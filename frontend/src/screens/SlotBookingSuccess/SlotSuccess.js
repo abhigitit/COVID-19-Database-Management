@@ -36,7 +36,7 @@ export default class SlotSuccess extends Component {
     Axios.post("http://localhost:5000/admin/decline", data).then((response)=>{
       alert("Slot Cancelled Successfully");
       if (response.data) {
-        alert("data");
+        // alert("data");
         this.setState({
           cmessage: response.data.message,
         });

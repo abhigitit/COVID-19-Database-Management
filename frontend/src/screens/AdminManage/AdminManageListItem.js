@@ -27,7 +27,7 @@ export class AdminManageListItem extends Component {
           PId:this.props.data.p_id
         };
         Axios.post("http://localhost:5000/admin/decline", data).then((response) => {
-          alert(response);
+          // alert(response);
           if (response.data) {
             this.setState({
               message: response.data.message,
@@ -48,7 +48,7 @@ export class AdminManageListItem extends Component {
 
         };
         Axios.post("http://localhost:5000/admin/authorize", data).then((response) => {
-          alert(response.data.message);
+          // alert(response.data.message);
           if (response.data) {
             this.setState({
               message: response.data.message,

@@ -3,8 +3,7 @@ import "./Register.css";
 import React, { Component } from "react";
 import Axios from "axios";
 import { Redirect } from "react-router";
-import moment from 'moment';
-
+import moment from "moment";
 
 export default class Register extends Component {
   constructor(props) {
@@ -13,18 +12,17 @@ export default class Register extends Component {
       fields: {},
       errors: {},
       message: "",
-      isSafe: false
+      isSafe: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
-    
   }
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -46,7 +44,7 @@ export default class Register extends Component {
       HomePhone: this.state.homePhone,
       Mobile: this.state.mobile,
       ECName: this.state.EContactName,
-      ECPhone: this.state.EContactPhone
+      ECPhone: this.state.EContactPhone,
     };
 
     Axios.post("http://localhost:5000/register", data).then((response) => {
@@ -91,7 +89,7 @@ export default class Register extends Component {
                 />
               </div>
 
-               <div className="form-group">
+              <div className="form-group">
                 <label>Password</label>
                 <input
                   type="password"
@@ -198,20 +196,20 @@ export default class Register extends Component {
                 />
               </div>
               <div className="form-group">
-              <input
-                  name="isSafe"                  
+                <input
+                  name="isSafe"
                   type="checkbox"
                   checked={this.state.isSafe}
-                  onChange={this.handleInputChange} />
-              <label className="checkbox-label">
+                  onChange={this.handleInputChange}
+                />
+                <label className="checkbox-label">
                   I dont have any covid symptoms from past 15 days
-              </label>
-
+                </label>
               </div>
               <div className="registerButton">
-                <Button 
-                disabled={!this.state.isSafe} 
-                type="submit">Register</Button>
+                <Button disabled={!this.state.isSafe} type="submit">
+                  Register
+                </Button>
                 <div>
                   <p className="AlreadyRegistered">
                     Already registered <a href="/login">log in?</a>

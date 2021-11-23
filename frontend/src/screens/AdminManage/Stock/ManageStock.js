@@ -36,7 +36,7 @@ export default class ManageStock extends Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    alert(this.state.vaccineCenterControl);
+    // alert(this.state.vaccineCenterControl);
     console.log(this.state.vaccineNameControl);
     console.log(this.state.appointmentDate);
 
@@ -46,7 +46,7 @@ export default class ManageStock extends Component {
       stockAvailable: this.state.stockAvailable,
     };
     Axios.post("http://localhost:5000/admin/manage", data).then((response) => {
-      alert(response.data.message);
+      // alert(response.data.message);
       if (response.data) {
         this.setState({
           message: response.data.message,

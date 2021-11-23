@@ -12,9 +12,9 @@ export default class Login extends Component {
       fields: {},
       errors: {},
       message: "",
-      slot:"",
-      date:"",
-      time:""
+      slot: "",
+      date: "",
+      time: "",
     };
   }
   onChange = (e) => {
@@ -34,18 +34,17 @@ export default class Login extends Component {
       console.log(response.data.message);
       if (response.data) {
         this.setState({
-          message: response.data.message, 
-          slot:response.data.slot_id,
-          date:response.data.sdate,
-          time:response.data.stime
-
+          message: response.data.message,
+          slot: response.data.slot_id,
+          date: response.data.sdate,
+          time: response.data.stime,
         });
       }
     });
   };
 
   fgtpwd() {
-    alert('Password reset mail has been sent!');
+    alert("Password reset mail has been sent!");
   }
 
   render() {
@@ -66,28 +65,27 @@ export default class Login extends Component {
     } else if (this.state.message === "notok") {
       alert("Log in failed");
       redirectVar = <Redirect to="/" />;
-    }
-    else if(this.state.message === "hasslot"){
+    } else if (this.state.message === "hasslot") {
       alert("has slot");
       redirectVar = (
         <Redirect
-        to={{
-          pathname: "/slotBookingSuccess",
-          state: {
-            slotId: this.state.slot,
-            slotDate: this.state.date,
-            slotTime: this.state.time
-          },
-        }}
-      />
+          to={{
+            pathname: "/slotBookingSuccess",
+            state: {
+              slotId: this.state.slot,
+              slotDate: this.state.date,
+              slotTime: this.state.time,
+            },
+          }}
+        />
       );
-    }
-    else if(this.state.message==="fullyVaccinated"){
-      alert("fully Vaccinated");
+    } else if (this.state.message === "fullyVaccinated") {
+      alert(
+        "Your vaccination certificate and coupon code will be emailed to you"
+      );
       redirectVar = <Redirect to="/" />;
     }
 
-    
     return (
       <div className="Login">
         {redirectVar}
@@ -127,7 +125,7 @@ export default class Login extends Component {
               </div>
               <div className="buttonContainer1">
                 <button className="fgtpwd" onClick={this.fgtpwd}>
-                Forgot password?
+                  Forgot password?
                 </button>
               </div>
             </form>

@@ -47,9 +47,9 @@ export default class SlotBooking extends Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    alert(this.state.vaccineCenterControl);
-    alert(this.state.vaccineNameControl);
-    alert(this.state.sponsorControl);
+    // alert(this.state.vaccineCenterControl);
+    // alert(this.state.vaccineNameControl);
+    // alert(this.state.sponsorControl);
     console.log(this.state.appointmentDate);
     console.log(this.state.appointmentTime);
     console.log(this.state.Email);

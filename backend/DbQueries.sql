@@ -148,9 +148,9 @@ INSERT INTO VaccinationCenter VALUES ("Sunnyvale", "CA, 95112", "2222222222");
 INSERT INTO VaccinationCenter VALUES ("Santa Clara", "CA, 95500", "3333333333");
 
 
-INSERT INTO Contains VALUES ("Pfizer", "San Jose", 100);
+INSERT INTO Contains VALUES ("Pfizer", "San Jose", 0);
 INSERT INTO Contains VALUES ("Moderna", "San Jose", 75);
-INSERT INTO Contains VALUES ("J&J", "San Jose", 0);
+INSERT INTO Contains VALUES ("J&J", "San Jose", 100);
 INSERT INTO Contains VALUES ("Pfizer", "Sunnyvale", 80);
 INSERT INTO Contains VALUES ("Moderna", "Sunnyvale", 10);
 INSERT INTO Contains VALUES ("Pfizer", "Santa Clara", 120);
